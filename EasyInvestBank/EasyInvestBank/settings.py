@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'EasyInvestBank.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Bank_db',
-        'USER': 'root',
-        'PASSWORD': 'qjk!jM075fXwfU5a&&Wk@2lP3pQK&U',
-        'HOST': '185.80.129.101',
+        'NAME': 'db',
+        'USER': 'user',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
