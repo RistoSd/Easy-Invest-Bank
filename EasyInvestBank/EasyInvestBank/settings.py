@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'viewer',
 ]
 
 MIDDLEWARE = [
@@ -76,10 +77,10 @@ WSGI_APPLICATION = 'EasyInvestBank.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db',
-        'USER': 'user',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'NAME': 'Bank_db',
+        'USER': 'root',
+        'PASSWORD': 'qjk!jM075fXwfU5a&&Wk@2lP3pQK&U',
+        'HOST': '185.80.129.101',
         'PORT': '3306',
     }
 }
