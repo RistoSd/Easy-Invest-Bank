@@ -133,3 +133,5 @@ dmypy.json
 
 EasyInvestBank/EasyInvestBank/settings.py
 /Scripts
+
+/Scripts/
