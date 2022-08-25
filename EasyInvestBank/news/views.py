@@ -8,7 +8,7 @@ def news(request):
            'country=us&'
            'category=business&'
            'pagesize=1&'
-           'q=cryptocurrencies&'
+           'q=crypto&'
            'apiKey=826167931ac14149bf2a52aa2d7ad964')
     response = requests.get(url1).json()
     url = str(response['articles'][0]['url'])
