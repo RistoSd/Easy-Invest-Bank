@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path, re_path
 from django.urls import path, re_path
 from Bank.views import money_transfer
+from news.views import news
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('news/', news),
     re_path(r"^money_transfer/", money_transfer, name = "money_transfer"),
+
 ]
