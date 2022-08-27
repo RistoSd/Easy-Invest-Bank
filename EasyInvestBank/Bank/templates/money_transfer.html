@@ -5,7 +5,7 @@
         <h2>Welcome, <span id="prof_name">{{ user }}.</span> </h2>
         <h4 style="font-weight: 300;">It's good to have you here.</h4>   
 
-        <form action="m{ url 'money_transfer' }" method="POST">
+        <form action="{ url 'money_transfer' }" method="POST">
             {% csrf_token %}
 
             <h3 style="font-weight: 300;">

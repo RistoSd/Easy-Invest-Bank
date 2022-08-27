@@ -20,6 +20,7 @@ from Bank.views import money_transfer
 from news.views import news
 from User.views import registration_form, login_form
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('news/', news),

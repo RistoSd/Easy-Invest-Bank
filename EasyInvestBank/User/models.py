@@ -67,6 +67,7 @@ class Account(AbstractBaseUser):
     address = models.CharField(max_length=100)
     country = models.CharField(verbose_name='Country', max_length=50, choices=COUNTRY_CHOICES, default='LT')
     IBAN = models.CharField(max_length=16, default=create_random_iban)
+    balance = models.IntegerField(default=0)
 
 
     is_active = models.BooleanField(default=True)
