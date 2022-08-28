@@ -15,14 +15,14 @@ def money_transfer(request):
         if form.is_valid():
             form.save()
             
-            temp_user = models.Transaction.objects.filter(senders_name=request.user.username)
+            temp_user = Transaction.objects.filter(senders_name=request.user.username)
             dest_user_acc_num = form["recipients_account_number"].value()
 
             temp = temp_user # NOTE: Delete this instance once money transfer is done
             
-            dest_user = models.Account.objects.get(IBAN=dest_user_acc_num) # FIELD 1
+            dest_user = Account.objects.get(IBAN=dest_user_acc_num) # FIELD 1
             transfer_amount = int(form["amount"].value()) # FIELD 2
-            curr_user = models.Account.objects.get(user=request.user) # FIELD 3
+            curr_user = Account.objects.get(user=request.user) # FIELD 3
 
             # Now transfer the money!
             curr_user.balance = curr_user.balance - transfer_amount

@@ -20,6 +20,7 @@ from Bank.views import money_transfer
 from news.views import news
 from User.views import registration_view, login_form, home, logout_view
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('news/', news),
@@ -28,5 +29,4 @@ urlpatterns = [
     path('login/', login_form, name='login'),
     path('home/', home),
     path('logout/', logout_view, name='logout'),
-
 ]
