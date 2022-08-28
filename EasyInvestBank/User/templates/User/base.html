@@ -18,7 +18,7 @@
             <div class="d-flex">
                 {% if user.is_authenticated %}
                 <!--Everyday Banking-->
-                <a href="#" class="pe-3">
+                <a href="/money_transfer" class="pe-3">
                     <button class="buttonCustom1">Everyday Banking</button>
                 <!-- My Account -->
                 <a href="#" class="pe-3">
@@ -58,6 +58,8 @@
             Home Page
       {% endif %}
 {% endif %}
+{% block content %}
+{% endblock %}
 
   </body>
 </html>
