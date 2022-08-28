@@ -1,0 +1,76 @@
+{% extends 'User/base.html' %}
+
+
+{% block news %}
+
+<div class="container-fluid ps-5 pt-5">
+    <div class="row row-cols-3">
+        <div class="col">
+            <div class="row row-cols-1">
+                <div class="col pb-2">
+                    <h1 class="ButtonCustom">World Bussiness News</h1>
+                </div>
+                <div class="col">
+                    <figure class="figure">
+                        <a href="{{ url }}"><img src="{{ image }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
+                        <a href="{{ url }}"><figcaption class="figure-caption">{{ title }}</figcaption></a>
+                    </figure>
+                </div>
+                <div class="col">
+                    <figure class="figure">
+                        <a href="{{ url2 }}"><img src="{{ image2 }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
+                        <a href="{{ url2 }}"><figcaption class="figure-caption">{{ title2 }}</figcaption></a>
+                    </figure>
+                </div>
+                <div class="col">
+                    <figure class="figure">
+                        <a href="{{ url3 }}"><img src="{{ image3 }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
+                        <a href="{{ url3 }}"><figcaption class="figure-caption">{{ title3 }}</figcaption></a>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <!-- Another row with infinite cols-->
+        <div class="col">
+            <div class="row row-cols-1">
+                <div class="col pb-2">
+                    <h1>World Bussiness News</h1>
+                </div>
+                <div class="col">
+                    <figure class="figure">
+                        <a href="{{ url }}"><img src="{{ image }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
+                        <a href="{{ url }}"><figcaption class="figure-caption">{{ title }}</figcaption></a>
+                    </figure>
+                </div>
+                <div class="col">
+                    <figure class="figure">
+                        <a href="{{ url2 }}"><img src="{{ image2 }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
+                        <a href="{{ url2 }}"><figcaption class="figure-caption">{{ title2 }}</figcaption></a>
+                    </figure>
+                </div>
+                <div class="col">
+                    <figure class="figure">
+                        <a href="{{ url2 }}"><img src="{{ image2 }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
+                        <a href="{{ url2 }}"><figcaption class="figure-caption">{{ title2 }}</figcaption></a>
+                    </figure>
+            </div>
+        </div>
+
+        <div class="col align-content-center">
+            <div class="row row-cols-1">
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+{% endblock %}
+
