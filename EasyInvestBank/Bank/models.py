@@ -7,5 +7,5 @@ class Transaction(models.Model):
     senders_account_currency = models.CharField(max_length=100)
     amount = models.IntegerField()
     recipients_name = models.CharField(max_length=100)
-    recipients_account_number = models.IntegerField()
+    recipients_account_number = models.CharField(max_length=16)
     recipients_account_currency = models.CharField(max_length=100)
