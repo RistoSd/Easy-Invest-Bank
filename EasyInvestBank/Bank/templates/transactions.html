@@ -1,0 +1,14 @@
+{% extends "User/base.html" %}
+
+{% block content %}
+
+<ul>
+  {% for d in transactions_data %}
+    <li>{{d.senders_name}} {{d.recipients_name}} {{d.recipients_account_number}} {{d.amount}} {{d.transaction_id}}</li>
+  {% endfor %}
+</ul>
+
+<br>
+
+
+{% endblock %}

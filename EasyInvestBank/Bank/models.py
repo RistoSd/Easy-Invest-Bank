@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Transaction(models.Model):
-    senders_name = models.CharField(max_length=100, null=True, blank=False)
+    senders_name = models.CharField(max_length=100, null=True)
     senders_account_currency = models.CharField(max_length=100)
     amount = models.IntegerField()
     recipients_name = models.CharField(max_length=100)
