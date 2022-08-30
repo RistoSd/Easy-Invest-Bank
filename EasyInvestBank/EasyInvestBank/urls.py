@@ -19,6 +19,7 @@ from django.urls import path, re_path
 from Bank.views import money_transfer
 from news.views import news
 from User.views import registration_view, login_form, home, logout_view
+from cryptoapi.views import cryptoprice
 
 
 urlpatterns = [
@@ -29,5 +30,5 @@ urlpatterns = [
     path('login/', login_form, name='login'),
     path('home/', home),
     path('logout/', logout_view, name='logout'),
-
+    path('cryptoprice/', cryptoprice),
 ]
