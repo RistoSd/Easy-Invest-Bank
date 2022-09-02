@@ -2,9 +2,22 @@
 
 {% block content %}
 
+<div class="container">
+  <form method="get">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Transactions seach" name="search">
+    <div class="input-group-append">
+      <button class="btn btn-secondary" type="submit">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+  </form>
+</div>
+
 <ul>
   {% for d in transactions_data %}
-    <li>{{d.senders_name}} {{d.recipients_name}} {{d.recipients_account_number}} {{d.amount}} {{d.transaction_id}}</li>
+    <li>{{d.senders_name}} {{d.recipients_name}} {{d.recipients_account_number}} {{d.amount}}€ {{d.transaction_id}}  {{d.date}}</li>
   {% endfor %}
 </ul>
 
