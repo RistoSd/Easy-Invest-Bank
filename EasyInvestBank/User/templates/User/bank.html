@@ -1,0 +1,83 @@
+{% extends 'User/base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <div class="container-fluid pt-5 ps-5 pb-5">
+        <h2>Hello, {{user.full_name}}!</h2>
+
+    </div>
+
+    <!-- Account INFO -->
+    <div class=" container bg-dark1 rounded-3 rounded">
+        <div class="pt-5 ps-5">
+            <div class="container">
+                <div class="row row-cols-2">
+                    <div class="col border-bottom border-danger">
+                        <h2>Account</h2>
+                    </div>
+                    <div class="col border-bottom border-danger">
+                        <h2 class="">Balance</h2>
+                    </div>
+                    <div class="col pt-2">
+                        <h3>{{user.full_name}} {{user.IBAN}}</h3>
+                    </div>
+                    <div class="col pt-2">
+                        <h3>{{user.balance}} Eur</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Actions -->
+        <div class="container ps-5 pt-5 border-bottom border-danger ">
+            <h3>Account Actions</h3>
+        </div>
+
+        <div class="container ps-5 pt-3 pb-5 ">
+            <button data-bs-toggle="modal" data-bs-target="#SendMoney" class="buttonCustom">Send Money</button>
+            <button data-bs-toggle="modal" data-bs-target="#" class="buttonCustom">Transaction History</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- SEND MONEY() POP-UP TESTING-->
+
+  <div class="modal fade" id="SendMoney" tabindex="-1" aria-labelledby="SendMoneyLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="SendMoneyLabel">Send Money</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="POST">{% csrf_token %}
+            <div class="modal-body">
+                <!-- BASIC FORM[NEEDS MORE OPTIONS] -->
+            
+                <div class="input-group mb-3">
+                    <span for="exampleInputEmail1" class="input-group-text" id="basic-addon1">Receiver's IBAN</span>
+                    <input type="text" name="receiver_IBAN" class="form-control" id="exampleInputEmail1" aria-label="IBAN" aria-describedby="IBAN">
+                </div>
+                <div class="input-group mb-3">
+                    <span for="amount" class="input-group-text" id="basic-addon1">Amount</span>
+                    <input type="number" name="amount" class="form-control" id="amount" aria-label="amount" aria-describedby="amount" min="0" max="{{user.balance}}" step="0.01">
+                    <span class="input-group-text">{{user.balance}} Eur</span> 
+                </div>
+                
+                <small>By transferring money from your account, you agree to the <a href="#">Terms and Conditions</a> of amount transfer</small>. <br>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger">Send</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

@@ -18,7 +18,7 @@ from django.urls import path, re_path
 from django.urls import path, re_path
 from Bank.views import money_transfer
 from news.views import news
-from User.views import registration_view, login_form, home, logout_view
+from User.views import registration_view, login_form, logout_view, bank_view, home
 from cryptoapi.views import cryptoprice
 
 
@@ -29,8 +29,8 @@ urlpatterns = [
     re_path(r"^money_transfer/", money_transfer, name = "money_transfer"),
     path('register/', registration_view, name='register'),
     path('login/', login_form, name='login'),
-    path('home/', home),
+    path('', home, name='home'),
     path('logout/', logout_view, name='logout'),
+    path('bank/', bank_view, name='bank'),
     path('cryptoprice/', cryptoprice),
-
 ]
