@@ -48,3 +48,9 @@
 .bg-dark1 {
     background-color: #888e91;
 }
+
+.text-red {
+    color:#d33e04;
+    display: inline-block;
+}
+
