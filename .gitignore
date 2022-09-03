@@ -136,3 +136,6 @@ EasyInvestBank/EasyInvestBank/settings.py
 /.idea
 
 /EasyInvestBank/EasyInvestBank.settings.py
+
+/pyvenv
+

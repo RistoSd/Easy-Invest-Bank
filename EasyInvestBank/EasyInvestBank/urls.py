@@ -22,6 +22,7 @@ from User.views import registration_view, login_form, home, logout_view
 from cryptoapi.views import cryptoprice
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('news/', news),
@@ -31,4 +32,5 @@ urlpatterns = [
     path('home/', home),
     path('logout/', logout_view, name='logout'),
     path('cryptoprice/', cryptoprice),
+
 ]
