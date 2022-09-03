@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from django.urls import path, re_path
-from Bank.views import money_transfer
+from Bank.views import money_transfer, ListTransactions
 from news.views import news
 from User.views import registration_view, login_form, logout_view, bank_view, home
 from cryptoapi.views import cryptoprice
@@ -31,6 +31,7 @@ urlpatterns = [
     path('login/', login_form, name='login'),
     path('', home, name='home'),
     path('logout/', logout_view, name='logout'),
+    path('transactions/', ListTransactions.as_view(), name='transactions'),
     path('bank/', bank_view, name='bank'),
     path('cryptoprice/', cryptoprice),
 ]
