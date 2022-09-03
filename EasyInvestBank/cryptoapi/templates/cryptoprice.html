@@ -1,0 +1,45 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Crypto prices:</h2>
+  <a>Bitcoin price {{ bitcoin_prices }} {{ currency }}</a>
+</br>
+ <a>Ethereum price {{ ethereum_prices }} {{ currency }}</a>
+<br />
+ <a>Litecoin price {{ litecoin_prices }} {{ currency }}</a>
+<br />
+     <a>Dogechain price {{ dogechain_prices }} {{ currency }}</a>
+<br />
+ <a>GMX price {{ gmx_prices }} {{ currency }}</a>
+<br />
+ <a>Optimism price {{ optimism_prices }} {{ currency }}</a>
+<br />
+ <a>eCash price {{ ecash_prices }} {{ currency }}</a>
+<br />
+    <a>Evmos price {{ evmos_prices }} {{ currency }}</a>
+    <br />
+    <a>Tether price {{ tether_prices }} {{ currency }}</a>
+    <br />
+      <a>USD Coin price {{ usdcoin_prices }} {{ currency }}</a>
+    <br />
+       <a>BNB price {{ binancecoin_prices }} {{ currency }}</a>
+    <br />
+    <a>Polygon price {{ maticnetwork_prices }} {{ currency }}</a>
+    <br />
+     <a>Tron price {{ tron_prices }} {{ currency }}</a>
+    <br />
+     <br />
+    <a><h2>Trending search coins TOP 7:</h2>
+    <li> <img src="{{ top7thumb1 }}" alt="alternatetext"> {{ top7names1 }}</li>>
+    <li> <img src="{{ top7thumb2 }}" alt="alternatetext"> {{ top7names2 }}</li>>
+    <li> <img src="{{ top7thumb3 }}" alt="alternatetext"> {{ top7names3 }}</li>>
+    <li> <img src="{{ top7thumb4 }}" alt="alternatetext"> {{ top7names4 }}</li>>
+    <li> <img src="{{ top7thumb5 }}" alt="alternatetext"> {{ top7names5 }}</li>>
+    <li> <img src="{{ top7thumb6 }}" alt="alternatetext"> {{ top7names6 }}</li>>
+    <li> <img src="{{ top7thumb7 }}" alt="alternatetext"> {{ top7names7 }}</li>>
+
+
+
+</a>
+{% endblock %}

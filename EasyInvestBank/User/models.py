@@ -67,7 +67,7 @@ class Account(AbstractBaseUser):
     address = models.CharField(max_length=100)
     country = models.CharField(verbose_name='Country', max_length=50, choices=COUNTRY_CHOICES, default='LT')
     IBAN = models.CharField(max_length=16, default=create_random_iban)
-    balance = models.IntegerField(default=0)
+    balance = models.DecimalField(max_digits=20, decimal_places=2, default=0)
 
 
     is_active = models.BooleanField(default=True)
@@ -96,3 +96,9 @@ class Account(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+    
+    
+    
+class Transaction_List1(models.Model):
+    amount = models.IntegerField()
+    receiver_IBAN = models.CharField(max_length=100)

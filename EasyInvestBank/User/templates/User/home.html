@@ -1,72 +1,96 @@
 {% extends 'User/base.html' %}
 
 
-{% block news %}
-
+{% block content %}
+<!-- World News -->
 <div class="container-fluid ps-5 pt-5">
     <div class="row row-cols-3">
         <div class="col">
             <div class="row row-cols-1">
                 <div class="col pb-2">
-                    <h1 class="ButtonCustom">World Bussiness News</h1>
+                    <h1 class="ButtonCustom">World Business News</h1>
                 </div>
                 <div class="col">
                     <figure class="figure">
-                        <a href="{{ url }}"><img src="{{ image }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
+                        <a href="{{ url }}"><img src="{{ image }}" class="figure-img img-fluid rounded" width="400" height="400" alt="..."></a>
                         <a href="{{ url }}"><figcaption class="figure-caption">{{ title }}</figcaption></a>
                     </figure>
                 </div>
                 <div class="col">
                     <figure class="figure">
-                        <a href="{{ url2 }}"><img src="{{ image2 }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
-                        <a href="{{ url2 }}"><figcaption class="figure-caption">{{ title2 }}</figcaption></a>
+                        <a href="{{ url1 }}"><img src="{{ image1 }}" class="figure-img img-fluid rounded" width="400" height="400" alt="..."></a>
+                        <a href="{{ url1 }}"><figcaption class="figure-caption">{{ title2 }}</figcaption></a>
                     </figure>
                 </div>
                 <div class="col">
                     <figure class="figure">
-                        <a href="{{ url3 }}"><img src="{{ image3 }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
-                        <a href="{{ url3 }}"><figcaption class="figure-caption">{{ title3 }}</figcaption></a>
+                        <a href="{{ url2 }}"><img src="{{ image2 }}" class="figure-img img-fluid rounded" width="400" height="400" alt="..."></a>
+                        <a href="{{ url2 }}"><figcaption class="figure-caption">{{ title2 }}</figcaption></a>
                     </figure>
                 </div>
             </div>
         </div>
-        <!-- Another row with infinite cols-->
+        <!-- World Crypto News-->
         <div class="col">
             <div class="row row-cols-1">
                 <div class="col pb-2">
-                    <h1>World Bussiness News</h1>
+                    <h1 class="buttonCustom">World Crypto News</h1>
                 </div>
                 <div class="col">
                     <figure class="figure">
-                        <a href="{{ url }}"><img src="{{ image }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
-                        <a href="{{ url }}"><figcaption class="figure-caption">{{ title }}</figcaption></a>
+                        <a href="{{ url5 }}"><img src="{{ image5 }}" class="figure-img img-fluid rounded" width="400" height="400" alt="..."></a>
+                        <a href="{{ url5 }}"><figcaption class="figure-caption">{{ title5 }}</figcaption></a>
                     </figure>
                 </div>
                 <div class="col">
                     <figure class="figure">
-                        <a href="{{ url2 }}"><img src="{{ image2 }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
-                        <a href="{{ url2 }}"><figcaption class="figure-caption">{{ title2 }}</figcaption></a>
+                        <a href="{{ url6 }}"><img src="{{ image6 }}" class="figure-img img-fluid rounded" width="400" height="400" alt="..."></a>
+                        <a href="{{ url6 }}"><figcaption class="figure-caption">{{ title6 }}</figcaption></a>
                     </figure>
                 </div>
                 <div class="col">
                     <figure class="figure">
-                        <a href="{{ url2 }}"><img src="{{ image2 }}" class="figure-img img-fluid rounded" width="450" height="450" alt="..."></a>
-                        <a href="{{ url2 }}"><figcaption class="figure-caption">{{ title2 }}</figcaption></a>
+                        <a href="{{ url7 }}"><img src="{{ image7 }}" class="figure-img img-fluid rounded" width="400" height="400" alt="..."></a>
+                        <a href="{{ url7 }}"><figcaption class="figure-caption">{{ title7 }}</figcaption></a>
                     </figure>
+                </div>
             </div>
         </div>
-
-        <div class="col align-content-center">
+        
+        <div class="col">
             <div class="row row-cols-1">
+                <div class="col pb-2">
+                    <h1 class="buttonCustom">Most Popular Cryptocurrencies</h1>
+                </div>
+                <div class="col">
+                    <p>Bitcoin price {{ bitcoin_prices }} {{ currency }}</p>
+                    <p>Ethereum price {{ ethereum_prices }} {{ currency }}</p>
+                    <p>Litecoin price {{ litecoin_prices }} {{ currency }}</p>
+                    <p>Dogechain price {{ dogechain_prices }} {{ currency }}</p>
+                    <p>GMX price {{ gmx_prices }} {{ currency }}</p>
+                    <p>Optimism price {{ optimism_prices }} {{ currency }}</p>
+                    <p>eCash price {{ ecash_prices }} {{ currency }}</p>
+                    <p>Evmos price {{ evmos_prices }} {{ currency }}</p>
+                    <p>Tether price {{ tether_prices }} {{ currency }}</p>
+                    <p>USD Coin price {{ usdcoin_prices }} {{ currency }}</p>
+                    <p>BNB price {{ binancecoin_prices }} {{ currency }}</p>
+                    <p>Polygon price {{ maticnetwork_prices }} {{ currency }}</p>
+                    <p>Tron price {{ tron_prices }} {{ currency }}</p>
+                </div>
+                <div class="col">
+                    <h1 class="buttonCustom">Most Traded Cryptocurrencies</h1>
+                    <p><img src="{{ top7thumb1 }}" alt="alternatetext"> {{ top7names1 }}</p>
+                    <p><img src="{{ top7thumb2 }}" alt="alternatetext"> {{ top7names2 }}</p>
+                    <p><img src="{{ top7thumb3 }}" alt="alternatetext"> {{ top7names3 }}</p>
+                    <p><img src="{{ top7thumb4 }}" alt="alternatetext"> {{ top7names4 }}</p>
+                    <p><img src="{{ top7thumb5 }}" alt="alternatetext"> {{ top7names5 }}</p>
+                    <p><img src="{{ top7thumb6 }}" alt="alternatetext"> {{ top7names6 }}</p>
+                    <p><img src="{{ top7thumb7 }}" alt="alternatetext"> {{ top7names7 }}</p>
+                </div>
+                <div class="col">
+                </div>
             </div>
         </div>
-
-
-
-
-
-
-
     </div>
 </div>
 
