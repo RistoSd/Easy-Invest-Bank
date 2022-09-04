@@ -4,7 +4,6 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
-from User.models import Transaction_List
 
 from User.models import Account
 
@@ -23,7 +22,7 @@ class UserCreationForm(forms.ModelForm):
         # Check that the two password entries match
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
-        if password1 and password2 and password1 != password2:
+        if password1 and password2 and password1 != password2: # TODO CHECK 
             raise ValidationError("Passwords don't match")
         return password2
 
@@ -83,4 +82,3 @@ admin.site.register(Account, UserAdmin)
 # unregister the Group model from admin.
 admin.site.unregister(Group)
 
-admin.site.register(Transaction_List)

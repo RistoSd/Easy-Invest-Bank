@@ -15,18 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from django.urls import path, re_path
-from Bank.views import money_transfer
-from news.views import news
-from User.views import registration_view, login_form, logout_view, bank_view, home
+from Bank.views import  bank_view
+from User.views import registration_view, login_form, logout_view
+from news.views import home
 from cryptoapi.views import cryptoprice
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('news/', news),
-    re_path(r"^money_transfer/", money_transfer, name = "money_transfer"),
+    # re_path(r"^money_transfer/", money_transfer, name = "money_transfer"),
     path('register/', registration_view, name='register'),
     path('login/', login_form, name='login'),
     path('', home, name='home'),
