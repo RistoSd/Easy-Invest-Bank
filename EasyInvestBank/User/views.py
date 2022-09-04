@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
-from User.forms import RegistrationForm, AccountAuthenticationForm, MoneyTransferForm, Transaction_List1
-from User.models import Account
+from User.forms import RegistrationForm, AccountAuthenticationForm, MoneyTransferForm
+from User.models import Account, Transaction_List
 import requests
-from django.views import View
+from django.views.generic import ListView
 from pycoingecko import CoinGeckoAPI
 
 
@@ -195,10 +195,13 @@ def home(request):
     return render(request, 'User/home.html', context=context)
 
 
-# Risto's Payment System Remade           
+# CONVERT IT TO CBV[HOPEFULLY I CAN UNDERSTAND IT]       
 
-def bank_view(request):    
+def bank_view(request):   
+    queryset = Transaction_List.objects.all()
+    
     if request.method == 'POST':
+        
         form = MoneyTransferForm(request.POST)
         if form.is_valid():
             form.save()
@@ -223,4 +226,5 @@ def bank_view(request):
             
     else:
         form = MoneyTransferForm()
-    return render(request, 'User/bank.html', {'form': form})
+    context= {'transaction_listas': queryset}
+    return render(request, 'User/bank.html', context)
