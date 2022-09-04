@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
-from User.models import Transaction_List1
+from User.models import Transaction_List
+from django.utils.timezone import now
 
 from User.models import Account
 
@@ -32,15 +33,18 @@ class AccountAuthenticationForm(forms.ModelForm):
 # Risto's Payment System Remade
 
 class MoneyTransferForm(forms.ModelForm):
-    amount = forms.DecimalField(max_digits=20, decimal_places=2, label='Amount')
+    amount = forms.DecimalField(max_digits=60, decimal_places=2, label='Amount')
     receiver_IBAN = forms.CharField(max_length=100)
+    sender_IBAN = forms.CharField(max_length=100)
+    sender_FULLNAME = forms.CharField(max_length=100)
     
     class Meta:
-        model = Transaction_List1
+        model = Transaction_List
         fields = [
             'amount',
             'receiver_IBAN',
+            'sender_IBAN',
+            'sender_FULLNAME'
         ]
-
         
         
