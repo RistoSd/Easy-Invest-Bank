@@ -7,7 +7,6 @@ from User.models import Account
 from .forms import MoneyTransferForm
 from django import forms
 
-
 # Create your views here.
 
 def bank_view(request):   
