@@ -56,8 +56,8 @@
             <div class="modal-body">
                 <!-- BASIC FORM[NEEDS MORE OPTIONS] -->
                 <div class="input-group">
-                    <span for="SenderNAME" class="input-group-text" id="basic-addon1" hidden>Sender's Name</span>
-                    <input type="text" name="sender_FULLNAME" class="form-control" id="SenderNAME" aria-label="full_name" value="{{user.full_name}}" aria-describedby="full_name" hidden>
+                    <span for="SenderNAME" class="input-group-text" id="basic-addon1" >Sender's Name</span>
+                    <input type="text" name="sender_FULLNAME" class="form-control" id="SenderNAME" aria-label="full_name" value="{{user.full_name}}" aria-describedby="full_name" >
                 </div>
                     <div class="input-group">
                     <span for="SenderIBAN" class="input-group-text" id="basic-addon1" hidden>Sender's IBAN</span>
@@ -109,7 +109,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for transaction in transaction_listas reversed %}
+                        {% for transaction in transaction_list reversed %}
                         {% if transaction.sender_IBAN == user.IBAN %}
                         <tr>
                             <td>{{transaction.sender_FULLNAME}}</td>
