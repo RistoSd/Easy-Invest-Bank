@@ -78,7 +78,6 @@ def home(request):
     # NEWS
     url = ('https://newsapi.org/v2/everything?'
         'q=Business&'
-        'from=2022-09-02&'
         'sortBy=popularity&'
         'apiKey=5fa0d0485aa5497d9fde386421fa8609')
 
@@ -87,7 +86,6 @@ def home(request):
          
     Crypto = ('https://newsapi.org/v2/everything?'
         'q=Bitcoin&'
-        'from=2022-09-02&'
         'sortBy=popularity&'
         'apiKey=826167931ac14149bf2a52aa2d7ad964')
 
