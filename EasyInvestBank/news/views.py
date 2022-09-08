@@ -1,5 +1,8 @@
+import datetime
+
 from django.shortcuts import render
 import requests
+import time
 from pycoingecko import CoinGeckoAPI
 
 
@@ -33,19 +36,21 @@ def home(request):
     currency = 'eur'  # can be 'eur' or 'usd'
     displayed_currency = currency.upper()
 
-    bitcoin_prices = crypto_prices['bitcoin'][currency]
-    erhereum_prices = crypto_prices['ethereum'][currency]
-    litecoin_prices = crypto_prices['litecoin'][currency]
-    dogechain_prices = crypto_prices['dogechain'][currency]
-    gmx_prices = crypto_prices['gmx'][currency]
-    optimism_prices = crypto_prices['optimism'][currency]
-    ecash_prices = crypto_prices['ecash'][currency]
-    evmos_prices = crypto_prices['evmos'][currency]
-    tether_prices = crypto_prices['tether'][currency]
-    usdcoin_prices = crypto_prices['usd-coin'][currency]
-    binancecoin_prices = crypto_prices['binancecoin'][currency]
-    maticnetwork_prices = crypto_prices['matic-network'][currency]
-    tron_prices = crypto_prices['tron'][currency]
+    bitcoin_prices = crypto_prices.get('bitcoin', {'usd': "error", 'eur': "error"})[currency]
+    erhereum_prices = crypto_prices.get('ethereum', {'usd': "error", 'eur': "error"})[currency]
+    litecoin_prices = crypto_prices.get('litecoin', {'usd': "error", 'eur': "error"})[currency]
+    dogechain_prices = crypto_prices.get('dogechain', {'usd': "error", 'eur': "error"})[currency]
+    gmx_prices = crypto_prices.get('gmx', {'usd': "error", 'eur': "error"})[currency]
+    optimism_prices = crypto_prices.get('optimism', {'usd': "error", 'eur': "error"})[currency]
+    ecash_prices = crypto_prices.get('ecash', {'usd': "error", 'eur': "error"})[currency]
+    evmos_prices = crypto_prices.get('evmos', {'usd': "error", 'eur': "error"})[currency]
+    tether_prices = crypto_prices.get('tether', {'usd': "error", 'eur': "error"})[currency]
+    usdcoin_prices = crypto_prices.get('usd-coin', {'usd': "error", 'eur': "error"})[currency]
+    binancecoin_prices = crypto_prices.get('binancecoin', {'usd': "error", 'eur': "error"})[currency]
+    maticnetwork_prices = crypto_prices.get('matic-network', {'usd': "error", 'eur': "error"})[currency]
+    tron_prices = crypto_prices.get('tron', {'usd': "error", 'eur': "error"})[currency]
+
+    current_time = datetime.datetime.now()
 
     top7trending = cg.get_search_trending()
     top7names1 = top7trending['coins'][0]['item']['name']
@@ -101,6 +106,7 @@ def home(request):
         'binancecoin_prices': binancecoin_prices,
         'maticnetwork_prices': maticnetwork_prices,
         'tron_prices': tron_prices,
+        'refresh_time': current_time,
 
         'top7names1': top7names1,
         'top7names2': top7names2,
