@@ -1,3 +1,15 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+
+
 .buttonCustom {
     background-color: #7408cc; 
     border: none;
@@ -46,11 +58,26 @@
 }
 
 .bg-dark1 {
-    background-color: #888e91;
+    background-color: #5b5e5f;
 }
 
 .text-red {
     color:#d33e04;
     display: inline-block;
 }
+
+
+.alert-pos {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    left: 50%;
+    
+}
+
+.navbar-bg1 {
+    background-color:#5b5e5f;
+}
+
+
 

@@ -1,15 +1,21 @@
+from cProfile import label
+from tkinter import Widget
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate
 
 from User.models import Account
 
+
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField(max_length=255, help_text='Required. Enter a valid email address')
+    email = forms.EmailField(max_length=255, widget=forms.EmailInput(attrs={'class': 'form-control', 
+                                                                            'id': 'exampleInputEmail1',
+                                                                            'style': 'max-width: 300px',
+                                                                            }))
     
     class Meta:
         model = Account
-        fields = ('email', 'date_of_birth', 'full_name', 'address', 'country', 'password1', 'password2')
+        fields = ('email', 'date_of_birth', 'full_name', 'address', 'country', 'password1', 'password2', 'currency')
         
         
 class AccountAuthenticationForm(forms.ModelForm):
@@ -27,6 +33,30 @@ class AccountAuthenticationForm(forms.ModelForm):
             raise forms.ValidationError('Invalid login')
         
         
+class AccountPasswordChangeForm(PasswordChangeForm):
+    # old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    # new_password1 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={
+    #     'class': 'form-control',
+    # }))
+    # new_password2 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={
+    #     'class': 'form-control',
+    # }))
+        
+    
+    class Meta:
+        model = Account
+        fields = ('old_password', 'new_password1', 'new_password2')
+        
+        
+        Widgets = {
+            'old_password' : forms.PasswordInput(attrs={'class': 'form-control'}),
+            'new_password1' : forms.PasswordInput(attrs={'class': 'form-control'}),
+            'new_password2' : forms.PasswordInput(attrs={'class': 'form-control'})
+        }
+        
+        
+        
+
         
 # Risto's Payment System Remade
 

@@ -1,0 +1,114 @@
+{% extends 'User/base.html' %}
+
+{% block content %}
+
+<div class="container pt-5">
+    <!-- My Account text-->
+    <div class=" border-3 border-danger border-bottom mb-5">
+        <h1 class="mb-5">My Account</h1>
+    </div>
+
+    <!-- Account information 1 -->
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <h2>Personal Information</h2>
+
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Your name</span>
+                <input type="text" name="full_name" aria-label="Full name" class="form-control" value="{{user.full_name}}" disabled>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Your Address</span>
+                <input type="text" name="address" aria-label="address" class="form-control" value="{{user.address}}">
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Country</label>
+                <select name="country" class="form-select" id="inputGroupSelect01" value="{{user.country}}">
+                  <option value="LT">Lithuania</option>
+                  <option value="LV">Latvia</option>
+                  <option value="EE">Estonia</option>
+                </select>
+            </div>
+            <div class="d-flex">
+                <button type="SUBMIT" class="btn btn-primary justify-content-end ">Edit</button>
+            </div>
+        </div>
+
+        <div class="col-4 ms-auto">
+            <h2>Account Authentication</h2>
+            <div class="input-group mb-3">
+                <span for="exampleInputEmail1" class="input-group-text" id="basic-addon1">Email</span>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-label="email" aria-describedby="emailHelp" value="{{user.email}}" disabled>
+            </div>
+            <div class="form-group">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-danger">Send</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="ChangePassword" tabindex="-1" aria-labelledby="ChangePasswordLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ChangePasswordLabel">Change Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <form method="POST">{% csrf_token %}
+                        {{form}}
+                    
+                <!-- BASIC FORM[NEEDS MORE OPTIONS] -->
+                
+                <!-- <div class="input-group">
+                    <span for="old_password" class="input-group-text" id="basic-addon1">Old Password</span>
+                    <input type="password" name="old_password" class="form-control" id="old_password" aria-label="old_password"  aria-describedby="old_password" required>
+                </div>
+                    <div class="input-group">
+                    <span for="new_password1" class="input-group-text" id="basic-addon1" >New Password</span>
+                    <input type="password" name="new_password1" class="form-control" id="new_password1" aria-label="new_password1" aria-describedby="new_password1" required>
+                </div>
+                <div class="input-group mb-3">
+                    <span for="new_password2" class="input-group-text" id="basic-addon1">Repeat New Password</span>
+                    <input type="password" name="new_password2" class="form-control" id=new_password2" aria-label="new_password2" aria-describedby="new_password2" required>
+                </div>
+                {% for field in change_password_form %}
+
+
+                {% if field.help_text %}
+                <small>{{field.help_text}}</small>
+                {% endif %}
+
+                {% for error in field.errors %}
+                <p>{{error}}</p>
+                {% endfor %}
+            </p>
+            {%endfor%}
+                <small>By transferring money from your account, you agree to the <a href="#">Terms and Conditions</a> of amount transfer</small>. <br>
+                 -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-danger">Send</button>
+            </div>
+        
+    </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}

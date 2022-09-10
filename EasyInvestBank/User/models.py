@@ -5,7 +5,7 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 import random
-from .constants import COUNTRY_CHOICES
+from .constants import COUNTRY_CHOICES, CURRENCY_CHOICES
 
 
 class AccountManager(BaseUserManager):
@@ -69,6 +69,7 @@ class Account(AbstractBaseUser):
     country = models.CharField(verbose_name='Country', max_length=50, choices=COUNTRY_CHOICES, default='LT')
     IBAN = models.CharField(max_length=16, default=create_random_iban)
     balance = models.DecimalField(max_digits=20, decimal_places=2, default=0)
+    currency = models.CharField(max_length=5, default='EUR', choices=CURRENCY_CHOICES)
 
 
     is_active = models.BooleanField(default=True)
