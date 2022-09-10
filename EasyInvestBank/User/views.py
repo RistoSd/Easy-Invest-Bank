@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.forms import UserCreationForm
-from User.forms import RegistrationForm, AccountAuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
+from User.forms import RegistrationForm, AccountAuthenticationForm, AccountPasswordChangeForm
 from User.models import Account
-import requests
-from django.views.generic import ListView
+from django.urls import reverse_lazy
 
 
 
@@ -22,6 +22,7 @@ def registration_view(request):
             full_name = form.cleaned_data.get('full_name')
             address = form.cleaned_data.get('address')
             country = form.cleaned_data.get('country')
+            currency = form.cleaned_data.get('currency')
             account = authenticate(
                 email=email,
                 password=raw_password,
@@ -29,6 +30,7 @@ def registration_view(request):
                 full_name=full_name,
                 address=address,
                 country=country,
+                currency=currency,
             )
             login(request, account)
             return redirect("/")
@@ -73,4 +75,11 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
+class AccountView(PasswordChangeView):
+    
+    
+    form = AccountPasswordChangeForm
+    success_url = reverse_lazy('home')
+    extra_context = {'change_password_form': form}
+    template_name = 'User/account.html'
 

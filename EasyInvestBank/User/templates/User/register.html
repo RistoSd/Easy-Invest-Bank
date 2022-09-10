@@ -4,24 +4,38 @@
     <div class="d-flex justify-content-center paddingDown">
         <form class="LoginBox" method="POST">{% csrf_token %}
             <!--Email Address -->
-            <div class="input-group mb-3">
-                <span for="exampleInputEmail1" class="input-group-text" id="basic-addon1">Email</span>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-label="email" aria-describedby="emailHelp">
+            <div class="input-group mb-3 needs-validation" novalidate>
+                
+                <span for="exampleInputEmail1" class="input-group-text" id="basic-addon1" has-validation>Email</span>
+                <!-- <div>{{field}}</div> -->
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-label="email" aria-describedby="emailHelp" required>
+                <div class="invalid-feedback">
+                    Please use valid email address.
+                  </div>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text">Your name</span>
-                <input type="text" name="full_name" aria-label="Full name" class="form-control">
+                <input type="text" name="full_name" aria-label="Full name" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please provide your full name.
+                  </div>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text">Birth date</span>
-                <input type="date" name="date_of_birth" aria-label="date of birth" class="form-control">
+                <input type="date" name="date_of_birth" aria-label="date of birth" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please choose a correct date.
+                  </div>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text">Your Address</span>
-                <input type="text" name="address" aria-label="address" class="form-control">
+                <input type="text" name="address" aria-label="address" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please provide an address.
+                  </div>
             </div>
 
             <div class="input-group mb-3">
@@ -33,68 +47,59 @@
                 </select>
             </div>
 
+            <!-- Currency choices -->
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Choice of currency</label>
+                <select name="currency" class="form-select" id="inputGroupSelect01">
+                  <option value="EUR">EURO</option>
+                  <option value="JPY">Japanese yen</option>
+                  <option value="BGN">Bulgarian lev</option>
+                  <option value="CZK">Czech krone</option>
+                  <option value="DKK">Danish krone</option>
+                  <option value="GBP">British pound</option>
+                  <option value="PLN">Polish Zloty</option>
+                  <option value="SEK">Swedish krone</option>
+                  <option value="RUB">Russian ruble</option>
+                </select>
+            </div>
+
+
 
             <div class="input-group mb-3">
                 <span for="exampleInputPassword" class="input-group-text" id="basic-addon1">Password</span>
-                <input type="password" name="password1" class="form-control" id="exampleInputPassword1" label='Password'>
+                <input type="password" name="password1" class="form-control" id="exampleInputPassword1" label='Password' required>
+                <div class="invalid-feedback">
+
+                  </div>
             </div>
 
             
             <div class="input-group mb-3">
                 <span for="exampleInputPassword" class="input-group-text" id="basic-addon1">Repeat Password</span>
-                <input type="password" name="password2" class="form-control" id="exampleInputPassword1" label='Password confirmation'>
+                <input type="password" name="password2" class="form-control" id="exampleInputPassword1" label='Password confirmation' required>
+                <div class="invalid-feedback">
+                    
+
+                  </div>
             </div>
-
-
-
-    
+            {% csrf_token %}
             {% for field in registration_form %}
-            <p class="">
+
+
+                {% if field.help_text %}
+                <small>{{field.help_text}}</small>
+                {% endif %}
+
                 {% for error in field.errors %}
                 <p>{{error}}</p>
                 {% endfor %}
             </p>
             {%endfor%}
-    
-            {% if registration_form.non_field_errors %}
-                <div class="bg-danger" style="color: red">
-                    <p>{{registration_form.non_field_errors}}</p>
-                </div>
-            {% endif %}
-    
-    
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex justify-content-end align-items-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
     </div>
 
-
-
-
-
-<!-- 
-
-        <div class="">
-            <form method="POST" class="form-group">
-                {% csrf_token %}
-                {% for field in registration_form %}
-                <p class="border border-3">
-                    {{field.label_tag}}
-                    {{field}}
-
-                    {% if field.help_text %}
-                    <small>{{field.help_text}}</small>
-                    {% endif %}
-
-                    {% for error in field.errors %}
-                    <p>{{error}}</p>
-                    {% endfor %}
-                </p>
-                {%endfor%}
-
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-success">Register</button>
-                </div>
-            </form>
-        </div> -->
 
 {% endblock %}

@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 # class Transaction(models.Model):
@@ -13,6 +12,7 @@ from django.db import models
     
     
 class Transaction_List(models.Model):
+
     
     sender_IBAN = models.CharField(max_length=100, default=0)
     sender_FULLNAME = models.CharField(max_length=100, default=0)
