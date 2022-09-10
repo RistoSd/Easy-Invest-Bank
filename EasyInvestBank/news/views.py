@@ -1,5 +1,8 @@
+import datetime
+
 from django.shortcuts import render
 import requests
+import time
 from pycoingecko import CoinGeckoAPI
 import time
 import datetime
