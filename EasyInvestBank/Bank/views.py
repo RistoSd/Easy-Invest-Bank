@@ -3,21 +3,8 @@ from .models import Transaction_List
 from User.models import Account
 from .forms import MoneyTransferForm
 from django.contrib import messages
-import requests
+from .utilities import currency_exchange
 from decimal import Decimal
-
-
-def currency_exchange(sender_curr, reciever_curr, amount):
-    url = 'https://exchange-rates.abstractapi.com/v1/convert'
-    querystring = {
-        'api_key': 'c6982eecf09f4920af0a2b426ed3d252',
-        'base': sender_curr,
-        'target': reciever_curr,
-        'base_amount': amount
-    }
-    response = requests.get(url, params=querystring).json()
-    converted_amount = response.get('converted_amount')
-    return round(converted_amount, 2)
 
 
 def bank_view(request):
