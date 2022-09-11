@@ -10,40 +10,38 @@
 
 
 
-<div class="">
-    <div class="container-fluid pt-5 ps-5 pb-5">
-        <h2>Hello, {{user.full_name}}!</h2>
+<div class="flex-grow-1">
+    <div class="container-fluid  pt-5 ps-5 pb-5">
+        <h2>Hello, <span style="color: red;">{{user.full_name}}</span>!</h2>
 
     </div>
 
     <!-- Account INFO -->
     <div class=" container bg-dark1 rounded-3 rounded">
-        <div class="pt-5 ps-5">
+        <div class="pt-5">
             <div class="container">
                 <div class="row row-cols-2">
                     <div class="col border-bottom border-danger">
-                        <h2>Account</h2>
+                        <h2 class="text-white ps-5">Account</h2>
                     </div>
                     <div class="col border-bottom border-danger">
-                        <h2 class="">Balance</h2>
+                        <h2 class="text-white">Balance</h2>
                     </div>
                     <div class="col pt-2">
-                        <h3>{{user.full_name}} {{user.IBAN}}</h3>
+                        <h3 class="text-white ps-5">{{user.full_name}} {{user.IBAN}}</h3>
                     </div>
                     <div class="col pt-2">
-                        <h3>{{user.balance}} {{user.currency}}</h3>
+                        <h3 class="text-white">{{user.balance}} {{user.currency}}</h3>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Account Actions -->
-        <div class="container ps-5 pt-5 border-bottom border-danger ">
-            <h3>Account Actions</h3>
-            <h3></h3>
+        <div class="container pt-5 border-bottom border-danger ">
         </div>
 
-        <div class="container ps-5 pt-3 pb-5 ">
+        <div class="container pt-3 pb-5 ps-5">
             <button data-backdrop="static" data-keyboard="false" data-bs-toggle="modal" data-bs-target="#SendMoney" class="buttonCustom">Send Money</button>
             <button data-bs-toggle="modal" data-bs-target="#TransactionList" class="buttonCustom">Transaction History</button>
         </div>
@@ -77,7 +75,7 @@
                     <input type="text" name="receiver_IBAN" class="form-control" id="exampleInputEmail1" aria-label="IBAN" aria-describedby="IBAN">
                 </div>
                 <div class="input-group mb-3">
-                    <span for="amount" class="input-group-text" id="basic-addon1">Amount</span>
+                    <span for="amount" class="input-group-text" id="basic-addon1" style="background-color: red;">Amount</span>
                     <input type="number" name="amount" class="form-control" id="amount" aria-label="amount" aria-describedby="amount" min="0" max="{{user.balance}}" step="0.01">
                     <span class="input-group-text">{{user.balance}} Eur</span> 
                 </div>

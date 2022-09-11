@@ -1,10 +1,11 @@
-from .models import Account
+from pycoingecko import CoinGeckoAPI
 
-def test():
-    if Account.objects.filter(IBAN=123444):
-        
-        print('True')
-    
-    
-    
-test()
+cg = CoinGeckoAPI()
+crypto_prices = cg.get_price(
+    ids='bitcoin, litecoin',
+    vs_currencies='eur',
+    include_last_updated_at=True,
+    include_24hr_change=True,
+    )
+
+print(crypto_prices.get('bitcoin'))

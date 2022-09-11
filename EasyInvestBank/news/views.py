@@ -32,34 +32,30 @@ def home(request):
     crypto_prices = cg.get_price(
         ids='bitcoin,litecoin,ethereum, dogechain, gmx, optimism, ecash, evmos, tether, usd-coin, binancecoin,'
             ' matic-network, tron',
-        vs_currencies='usd,eur')
+        vs_currencies='eur',
+        include_last_updated_at=True,
+        include_24hr_change=True,
+        )
 
     currency = 'eur'  # can be 'eur' or 'usd'
-    displayed_currency = currency.upper()
-    crypto_ids = [
-        'bitcoin',
-        'litecoin',
-        'ethereum',
-        'dogechain'
-    ]
-    crypto_list = []
-    for i in crypto_ids:
-        x = crypto_prices.get(i, {'usd': 'error', 'eur': 'error'})[currency]
-        crypto_list.append(x)   
+    displayed_currency = currency.upper() 
     
-    bitcoin_prices = crypto_prices.get('bitcoin', {'usd': "error", 'eur': "error"})[currency]
-    erhereum_prices = crypto_prices.get('ethereum', {'usd': "error", 'eur': "error"})[currency]
-    litecoin_prices = crypto_prices.get('litecoin', {'usd': "error", 'eur': "error"})[currency]
-    dogechain_prices = crypto_prices.get('dogechain', {'usd': "error", 'eur': "error"})[currency]
-    gmx_prices = crypto_prices.get('gmx', {'usd': "error", 'eur': "error"})[currency]
-    optimism_prices = crypto_prices.get('optimism', {'usd': "error", 'eur': "error"})[currency]
-    ecash_prices = crypto_prices.get('ecash', {'usd': "error", 'eur': "error"})[currency]
-    evmos_prices = crypto_prices.get('evmos', {'usd': "error", 'eur': "error"})[currency]
-    tether_prices = crypto_prices.get('tether', {'usd': "error", 'eur': "error"})[currency]
-    usdcoin_prices = crypto_prices.get('usd-coin', {'usd': "error", 'eur': "error"})[currency]
-    binancecoin_prices = crypto_prices.get('binancecoin', {'usd': "error", 'eur': "error"})[currency]
-    maticnetwork_prices = crypto_prices.get('matic-network', {'usd': "error", 'eur': "error"})[currency]
-    tron_prices = crypto_prices.get('tron', {'usd': "error", 'eur': "error"})[currency]
+    bitcoin_prices = crypto_prices.get('bitcoin')
+    erhereum_prices = crypto_prices.get('ethereum')
+    litecoin_prices = crypto_prices.get('litecoin')
+    dogechain_prices = crypto_prices.get('dogechain')
+    gmx_prices = crypto_prices.get('gmx')
+    optimism_prices = crypto_prices.get('optimism')
+    ecash_prices = crypto_prices.get('ecash')
+    evmos_prices = crypto_prices.get('evmos')
+    tether_prices = crypto_prices.get('tether')
+    usdcoin_prices = crypto_prices.get('usd-coin')
+    binancecoin_prices = crypto_prices.get('binancecoin')
+    maticnetwork_prices = crypto_prices.get('matic-network')
+    tron_prices = crypto_prices.get('tron')
+    
+    bitcoin_test = crypto_prices.get('bitcoin')
+    
 
     current_time = datetime.datetime.now()
 
@@ -81,6 +77,9 @@ def home(request):
 
 
     context = {
+        'bitcoin_test': bitcoin_test,
+        
+        
         'url': article[0]['url'],
         'title': article[0]['title'],
         'image': article[0]['urlToImage'],
@@ -134,8 +133,6 @@ def home(request):
         'top7thumb6': top7thumb6,
         'top7thumb7': top7thumb7,
         
-        
-        'query': crypto_list,
 
         
     }
@@ -170,19 +167,19 @@ def home(request):
 #     currency = 'eur'  # can be 'eur' or 'usd'
 #     displayed_currency = currency.upper()
 
-#     bitcoin_prices = crypto_prices['bitcoin'][currency]
-#     erhereum_prices = crypto_prices['ethereum'][currency]
-#     litecoin_prices = crypto_prices['litecoin'][currency]
-#     dogechain_prices = crypto_prices['dogechain'][currency]
-#     gmx_prices = crypto_prices['gmx'][currency]
-#     optimism_prices = crypto_prices['optimism'][currency]
-#     ecash_prices = crypto_prices['ecash'][currency]
-#     evmos_prices = crypto_prices['evmos'][currency]
-#     tether_prices = crypto_prices['tether'][currency]
-#     usdcoin_prices = crypto_prices['usd-coin'][currency]
-#     binancecoin_prices = crypto_prices['binancecoin'][currency]
-#     maticnetwork_prices = crypto_prices['matic-network'][currency]
-#     tron_prices = crypto_prices['tron'][currency]
+#     bitcoin_prices = crypto_prices['bitcoin
+#     erhereum_prices = crypto_prices['ethereum
+#     litecoin_prices = crypto_prices['litecoin
+#     dogechain_prices = crypto_prices['dogechain
+#     gmx_prices = crypto_prices['gmx
+#     optimism_prices = crypto_prices['optimism
+#     ecash_prices = crypto_prices['ecash
+#     evmos_prices = crypto_prices['evmos
+#     tether_prices = crypto_prices['tether
+#     usdcoin_prices = crypto_prices['usd-coin
+#     binancecoin_prices = crypto_prices['binancecoin
+#     maticnetwork_prices = crypto_prices['matic-network
+#     tron_prices = crypto_prices['tron
 
 #     top7trending = cg.get_search_trending()
 #     top7names1 = top7trending['coins'][0]['item']['name']
