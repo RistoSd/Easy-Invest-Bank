@@ -1,161 +1,248 @@
-{% extends 'User/base.html' %}
-{% load static %}
-
-
-
-{% block content %}
-
-{% include 'Bank/messages.html' %}
-
-
-
+{% extends 'User/base.html' %} {% load static %} {% block content %} {% include
+'Bank/messages.html' %}
 
 <div class="flex-grow-1">
-    <div class="container-fluid  pt-5 ps-5 pb-5">
-        <h2>Hello, <span style="color: red;">{{user.full_name}}</span>!</h2>
+  <div class="container-fluid pt-5 ps-5 pb-5">
+    <h2>Hello, <span style="color: red">{{user.full_name}}</span>!</h2>
+  </div>
 
+  <!-- Account INFO -->
+  <div class="container bg-dark1 rounded-3 rounded">
+    <div class="pt-5">
+      <div class="container">
+        <div class="row row-cols-2">
+          <div class="col border-bottom border-danger">
+            <h2 class="text-white ps-5">Account</h2>
+          </div>
+          <div class="col border-bottom border-danger">
+            <h2 class="text-white">Balance</h2>
+          </div>
+          <div class="col pt-2">
+            <h3 class="text-white ps-5">{{user.full_name}} {{user.IBAN}}</h3>
+          </div>
+          <div class="col pt-2">
+            <h3 class="text-white">{{user.balance}} {{user.currency}}</h3>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Account INFO -->
-    <div class=" container bg-dark1 rounded-3 rounded">
-        <div class="pt-5">
-            <div class="container">
-                <div class="row row-cols-2">
-                    <div class="col border-bottom border-danger">
-                        <h2 class="text-white ps-5">Account</h2>
-                    </div>
-                    <div class="col border-bottom border-danger">
-                        <h2 class="text-white">Balance</h2>
-                    </div>
-                    <div class="col pt-2">
-                        <h3 class="text-white ps-5">{{user.full_name}} {{user.IBAN}}</h3>
-                    </div>
-                    <div class="col pt-2">
-                        <h3 class="text-white">{{user.balance}} {{user.currency}}</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Account Actions -->
+    <div class="container pt-5 border-bottom border-danger"></div>
 
-        <!-- Account Actions -->
-        <div class="container pt-5 border-bottom border-danger ">
-        </div>
-
-        <div class="container pt-3 pb-5 ps-5">
-            <button data-backdrop="static" data-keyboard="false" data-bs-toggle="modal" data-bs-target="#SendMoney" class="buttonCustom">Send Money</button>
-            <button data-bs-toggle="modal" data-bs-target="#TransactionList" class="buttonCustom">Transaction History</button>
-        </div>
+    <div class="container pt-3 pb-5 ps-5">
+      <button
+        data-backdrop="static"
+        data-keyboard="false"
+        data-bs-toggle="modal"
+        data-bs-target="#SendMoney"
+        class="buttonCustom"
+      >
+        Send Money
+      </button>
+      <button
+        data-bs-toggle="modal"
+        data-bs-target="#TransactionList"
+        class="buttonCustom"
+      >
+        Transaction History
+      </button>
     </div>
+  </div>
 </div>
-
 
 <!-- SEND MONEY() POP-UP TESTING-->
 
-  <div class="modal fade" id="SendMoney" tabindex="-1" aria-labelledby="SendMoneyLabel" aria-hidden="true" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="SendMoneyLabel">Send Money</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div
+  class="modal fade"
+  id="SendMoney"
+  tabindex="-1"
+  aria-labelledby="SendMoneyLabel"
+  aria-hidden="true"
+  role="dialog"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="SendMoneyLabel">Send Money</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <form method="POST">
+        {% csrf_token %}
+        <div class="modal-body">
+          <!-- BASIC FORM[NEEDS MORE OPTIONS] -->
+          <div class="input-group">
+            <span
+              for="SenderNAME"
+              class="input-group-text"
+              id="basic-addon1"
+              hidden
+              >Sender's Name</span
+            >
+            <input
+              type="text"
+              name="sender_FULLNAME"
+              class="form-control"
+              id="SenderNAME"
+              aria-label="full_name"
+              value="{{user.full_name}}"
+              aria-describedby="full_name"
+              hidden
+            />
+          </div>
+          <div class="input-group">
+            <span
+              for="SenderIBAN"
+              class="input-group-text"
+              id="basic-addon1"
+              hidden
+              >Sender's IBAN</span
+            >
+            <input
+              type="text"
+              name="sender_IBAN"
+              class="form-control"
+              id="SenderIBAN"
+              aria-label="IBAN"
+              value="{{user.IBAN}}"
+              aria-describedby="IBAN"
+              hidden
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span
+              for="exampleInputEmail1"
+              class="input-group-text"
+              id="basic-addon1"
+              >Receiver's IBAN</span
+            >
+            <input
+              type="text"
+              name="receiver_IBAN"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-label="IBAN"
+              aria-describedby="IBAN"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span
+              for="amount"
+              class="input-group-text"
+              id="basic-addon1"
+              style="background-color: red"
+              >Amount</span
+            >
+            <input
+              type="number"
+              name="amount"
+              class="form-control"
+              id="amount"
+              aria-label="amount"
+              aria-describedby="amount"
+              min="0"
+              max="{{user.balance}}"
+              step="0.01"
+            />
+            <span class="input-group-text">{{user.balance}} Eur</span>
+          </div>
+          <small
+            >By transferring money from your account, you agree to the
+            <a href="#">Terms and Conditions</a> of amount transfer</small
+          >. <br />
         </div>
-        
-        <form method="POST">{% csrf_token %}
-            <div class="modal-body">
-                <!-- BASIC FORM[NEEDS MORE OPTIONS] -->
-                <div class="input-group">
-                    <span for="SenderNAME" class="input-group-text" id="basic-addon1" hidden>Sender's Name</span>
-                    <input type="text" name="sender_FULLNAME" class="form-control" id="SenderNAME" aria-label="full_name" value="{{user.full_name}}" aria-describedby="full_name" hidden>
-                </div>
-                    <div class="input-group">
-                    <span for="SenderIBAN" class="input-group-text" id="basic-addon1" hidden>Sender's IBAN</span>
-                    <input type="text" name="sender_IBAN" class="form-control" id="SenderIBAN" aria-label="IBAN" value="{{user.IBAN}}" aria-describedby="IBAN" hidden>
-                </div>
-                <div class="input-group mb-3">
-                    <span for="exampleInputEmail1" class="input-group-text" id="basic-addon1">Receiver's IBAN</span>
-                    <input type="text" name="receiver_IBAN" class="form-control" id="exampleInputEmail1" aria-label="IBAN" aria-describedby="IBAN">
-                </div>
-                <div class="input-group mb-3">
-                    <span for="amount" class="input-group-text" id="basic-addon1" style="background-color: red;">Amount</span>
-                    <input type="number" name="amount" class="form-control" id="amount" aria-label="amount" aria-describedby="amount" min="0" max="{{user.balance}}" step="0.01">
-                    <span class="input-group-text">{{user.balance}} Eur</span> 
-                </div>
-                <small>By transferring money from your account, you agree to the <a href="#">Terms and Conditions</a> of amount transfer</small>. <br>
-                
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-danger">Send</button>
-            </div>
-        </form>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button class="btn btn-danger">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSACTION LIST-->
+<div
+  class="modal fade"
+  id="TransactionList"
+  tabindex="-1"
+  aria-labelledby="TransactionListLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TransactionList">Transaction History</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <!-- BASIC FORM[NEEDS MORE OPTIONS]  -->
+        <table class="table">
+          <thead class="table-dark">
+            <tr>
+              <th>Sender's Name</th>
+              <th>Sender's IBAN</th>
+              <th>Receiver's IBAN</th>
+              <th>Amount</th>
+              <th>Date Sent</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for transaction in transaction_list reversed %} {% if
+            transaction.sender_IBAN == user.IBAN %}
+            <tr>
+              <td>{{transaction.sender_FULLNAME}}</td>
+              <td>{{transaction.sender_IBAN}}</td>
+              <td>{{transaction.receiver_IBAN}}</td>
+              <td>- {{transaction.amount}}</td>
+              <td>{{transaction.sent_at}}</td>
+            </tr>
+            {% elif transaction.receiver_IBAN == user.IBAN %}
+            <tr>
+              <td>{{transaction.sender_FULLNAME}}</td>
+              <td>{{transaction.sender_IBAN}}</td>
+              <td>{{transaction.receiver_IBAN}}</td>
+              <td>+ {{transaction.amount}}</td>
+              <td>{{transaction.sent_at}}</td>
+            </tr>
+            {% endif %} {% endfor %}
+          </tbody>
+
+          <tfoot class="table-dark">
+            <tr>
+              <th>Sender's Name</th>
+              <th>Sender's IBAN</th>
+              <th>Receiver's IBAN</th>
+              <th>Amount</th>
+              <th>Date Sent</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
-
-
-
-  <!-- TRANSACTION LIST-->
-  <div class="modal fade" id="TransactionList" tabindex="-1" aria-labelledby="TransactionListLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="TransactionList">Transaction History</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-            <div class="modal-body">
-                <!-- BASIC FORM[NEEDS MORE OPTIONS]  -->
-                <table class="table">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Sender's Name</th>
-                            <th>Sender's IBAN</th>
-                            <th>Receiver's IBAN</th>
-                            <th>Amount</th>
-                            <th>Date Sent</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for transaction in transaction_list reversed %}
-                        {% if transaction.sender_IBAN == user.IBAN %}
-                        <tr>
-                            <td>{{transaction.sender_FULLNAME}}</td>
-                            <td>{{transaction.sender_IBAN}}</td>
-                            <td>{{transaction.receiver_IBAN}}</td>
-                            <td>- {{transaction.amount}}</td>
-                            <td>{{transaction.sent_at}}</td>
-                        </tr>
-                        {% elif transaction.receiver_IBAN == user.IBAN %}
-                        <tr>
-                            <td>{{transaction.sender_FULLNAME}}</td>
-                            <td>{{transaction.sender_IBAN}}</td>
-                            <td>{{transaction.receiver_IBAN}}</td>
-                            <td>+ {{transaction.amount}}</td>
-                            <td>{{transaction.sent_at}}</td>
-                        </tr>
-                        {% endif %}
-                        {% endfor %}
-                    </tbody>
-
-                    <tfoot class="table-dark">
-                        <tr>
-                            <th>Sender's Name</th>
-                            <th>Sender's IBAN</th>
-                            <th>Receiver's IBAN</th>
-                            <th>Amount</th>
-                            <th>Date Sent</th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
+</div>
 
 {% endblock %}
