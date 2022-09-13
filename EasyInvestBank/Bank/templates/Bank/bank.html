@@ -1,5 +1,7 @@
-{% extends 'User/base.html' %} {% load static %} {% block content %} {% include
-'Bank/messages.html' %}
+{% extends 'User/base.html' %} 
+{% load static %} 
+{% block content %} 
+{% include 'Bank/messages.html' %}
 
 <div class="flex-grow-1">
   <div class="container-fluid pt-5 ps-5 pb-5">
@@ -205,8 +207,8 @@
             </tr>
           </thead>
           <tbody>
-            {% for transaction in transaction_list reversed %} {% if
-            transaction.sender_IBAN == user.IBAN %}
+            {% for transaction in transaction_list reversed %} 
+            {% if transaction.sender_IBAN == user.IBAN %}
             <tr>
               <td>{{transaction.sender_FULLNAME}}</td>
               <td>{{transaction.sender_IBAN}}</td>
@@ -222,7 +224,8 @@
               <td>+ {{transaction.amount}}</td>
               <td>{{transaction.sent_at}}</td>
             </tr>
-            {% endif %} {% endfor %}
+            {% endif %} 
+            {% endfor %}
           </tbody>
 
           <tfoot class="table-dark">
