@@ -13,11 +13,14 @@ Installation and usage
 Local installation
 Clone the repository and create a virtual environment for it. Currently, EasyInvestBank uses Python 3.10
 
+Create virtual environment with:
 python3.10 -m venv venv
+
+activate vitual enviorment with:
 Linux command line: source venv/bin/activate
 Windows command line: venv/Scripts/activate.bat
-Install the requirements
 
+Install the requirements with:
 pip install -r requirements.txt
 
 Launch the application with python manage.py runserver from the application's root folder
