@@ -1,8 +1,8 @@
-from django.db import models
-from django.contrib.auth.models import (
-    BaseUserManager, AbstractBaseUser
-)
 import random
+
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.db import models
+
 from .constants import COUNTRY_CHOICES, CURRENCY_CHOICES
 
 

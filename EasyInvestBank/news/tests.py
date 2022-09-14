@@ -1,5 +1,5 @@
-from django.test import TestCase
 import requests
+from django.test import TestCase
 
 
 class TestAPi(TestCase):

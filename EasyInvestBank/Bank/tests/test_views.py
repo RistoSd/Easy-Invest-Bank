@@ -1,6 +1,6 @@
-from django.test import TestCase, Client
-from django.urls import reverse
 import requests
+from django.test import Client, TestCase
+from django.urls import reverse
 
 
 class TestViews(TestCase):

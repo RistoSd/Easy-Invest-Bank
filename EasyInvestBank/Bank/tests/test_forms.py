@@ -1,5 +1,5 @@
-from django.test import SimpleTestCase
 from Bank.forms import MoneyTransferForm
+from django.test import SimpleTestCase
 
 
 class TestViews(SimpleTestCase):

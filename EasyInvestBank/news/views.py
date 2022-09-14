@@ -1,5 +1,5 @@
-from django.shortcuts import render
 import requests
+from django.shortcuts import render
 from pycoingecko import CoinGeckoAPI
 
 

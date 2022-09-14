@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect
-from .models import Transaction_List
-from User.models import Account
-from .forms import MoneyTransferForm
-from django.contrib import messages
-from .utilities import currency_exchange
 from decimal import Decimal
+
+from django.contrib import messages
+from django.shortcuts import redirect, render
+from User.models import Account
+
+from .forms import MoneyTransferForm
+from .models import Transaction_List
+from .utilities import currency_exchange
 
 
 def bank_view(request):

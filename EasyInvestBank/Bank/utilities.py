@@ -1,5 +1,6 @@
 import requests
 
+
 def currency_exchange(sender_curr: str, reciever_curr: str, amount: int) -> int:
     """
     Takes sender currency and reciever currency and amount then

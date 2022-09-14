@@ -1,9 +1,8 @@
+from Bank.views import bank_view
 from django.contrib import admin
 from django.urls import path
-from Bank.views import bank_view
-from User.views import registration_view, login_form, logout_view, AccountView
 from news.views import home
-
+from User.views import AccountView, login_form, logout_view, registration_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
