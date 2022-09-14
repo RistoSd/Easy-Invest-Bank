@@ -7,7 +7,11 @@ from .constants import COUNTRY_CHOICES, CURRENCY_CHOICES
 
 
 class AccountManager(BaseUserManager):
-    def create_user(self, email, date_of_birth, full_name, address, country, password=None):
+    def create_user(
+        self, email, date_of_birth, 
+        full_name, address, country, 
+        password=None
+    ):
         """
         Creates and saves a User with the given email, date of
         birth and password.
