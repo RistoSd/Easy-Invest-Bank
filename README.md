@@ -1,6 +1,6 @@
 EasyInvestBank
-EasyInvestBank is a django based project that has a news page, crypto price list and user registrations login system with transaction system
-between users with automatic currency transfer.
+EasyInvestBank is a django based project that has a news page, crypto price list and user registration/login with transaction system
+between users that includes automatic currency transfer.
 
 demo image
 
@@ -18,7 +18,7 @@ Linux command line: source venv/bin/activate
 Windows command line: venv/Scripts/activate.bat
 Install the requirements
 
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
 
 Launch the application with python manage.py runserver from the application's root folder
 
