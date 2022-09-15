@@ -2,88 +2,117 @@
 
 {% block content %}
 
+
+<div class=" d-flex flex-grow-1 justify-content-center flex-wrap">
 <!-- WORKING WITH VERTICAL TABS -->
-<div class=" flex-grow-1 pt-5">
-<div class="row w-100">
-    <div class="col-3">
-      <!-- Tab navs -->
-      <div
-        class="nav flex-xxl-column nav-tabs text-center"
-        id="v-tabs-tab"
-        role="tablist"
-        aria-orientation="vertical"
-      >
-        <a
-          class="nav-link active"
-          id="v-tabs-home-tab"
-          data-mdb-toggle="tab"
-          href="#v-tabs-home"
-          role="tab"
-          aria-controls="v-tabs-home"
-          aria-selected="true"
-          >Email Address</a
+  <div class="container pt-5">
+  <div class="row w-100">
+      <div class="col-3">
+        <!-- Tab navs -->
+        <div
+          class="nav flex-xxl-column nav-tabs text-center"
+          id="v-tabs-tab"
+          role="tablist"
+          aria-orientation="vertical"
         >
-        <a
-          class="nav-link"
-          id="v-tabs-profile-tab"
-          data-mdb-toggle="tab"
-          href="#v-tabs-profile"
-          role="tab"
-          aria-controls="v-tabs-profile"
-          aria-selected="false"
-          >Personal Information</a
-        >
-        <a
-          class="nav-link"
-          id="v-tabs-messages-tab"
-          data-mdb-toggle="tab"
-          href="#v-tabs-messages"
-          role="tab"
-          aria-controls="v-tabs-messages"
-          aria-selected="false"
-          >Change Password</a
-        >
+          <a
+            class="nav-link active"
+            id="v-tabs-home-tab"
+            data-mdb-toggle="tab"
+            href="#v-tabs-home"
+            role="tab"
+            aria-controls="v-tabs-home"
+            aria-selected="true"
+            >Email Address</a
+          >
+          <a
+            class="nav-link"
+            id="v-tabs-profile-tab"
+            data-mdb-toggle="tab"
+            href="#v-tabs-profile"
+            role="tab"
+            aria-controls="v-tabs-profile"
+            aria-selected="false"
+            >Personal Information</a
+          >
+          <a
+            class="nav-link"
+            id="v-tabs-messages-tab"
+            data-mdb-toggle="tab"
+            href="#v-tabs-messages"
+            role="tab"
+            aria-controls="v-tabs-messages"
+            aria-selected="false"
+            >Change Password</a
+          >
+        </div>
+        <!-- Tab navs -->
       </div>
-      <!-- Tab navs -->
-    </div>
-  
-    <div class="col-9 ps-5">
-      <!-- Tab content -->
-      <div class="tab-content" id="v-tabs-tabContent">
-        <div
-          class="tab-pane fade show active"
-          id="v-tabs-home"
-          role="tabpanel"
-          aria-labelledby="v-tabs-home-tab"
-        >
-          Home content
-        </div>
-        <div
-          class="tab-pane fade"
-          id="v-tabs-profile"
-          role="tabpanel"
-          aria-labelledby="v-tabs-profile-tab"
-        >
-          Profile content
-        </div>
-        <div
-          class="tab-pane fade"
-          id="v-tabs-messages"
-          role="tabpanel"
-          aria-labelledby="v-tabs-messages-tab"
-        >
-        <div class="form-group">
+    
+      <div class="col-9 ps-5">
+        <!-- Tab content -->
+        <div class="tab-content" id="v-tabs-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="v-tabs-home"
+            role="tabpanel"
+            aria-labelledby="v-tabs-home-tab"
+          >
+          <div class="form-group">
             <form method="POST">
                 {% csrf_token %}
-                {{form.as_p}}
-                <button class="btn btn-danger">Send</button>
+                {{email_form.as_p}}
+                <button name="email_form" class="btn btn-danger">Send</button>
             </form>
         </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="v-tabs-profile"
+            role="tabpanel"
+            aria-labelledby="v-tabs-profile-tab"
+          >
+          <div class="form-outline mb-4">
+            <form method="POST" wasvalidated>
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
 
-          </form>
+                <div class="form-outline mb-4">
+                  <input type="text" id="address" name="address" class="form-control form-control-lg border" />
+                  <label class="form-label" for="address">Address</label>
+                </div>
+                <button name="personal_form" class="btn btn-danger">Save</button>
+            </form>
         </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="v-tabs-messages"
+            role="tabpanel"
+            aria-labelledby="v-tabs-messages-tab"
+          >
+          <div class="form-group">
+              <form method="POST">
+                  {% csrf_token %}
+                  {{personal_form.as_p}}
+                  <button name="personal_form" class="btn btn-danger">Send</button>
+              </form>
+          </div>
+
+            </form>
+          </div>
+        </div>
+        <!-- Tab content -->
       </div>
-      <!-- Tab content -->
     </div>
   </div>
 </div>

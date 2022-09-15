@@ -1,7 +1,14 @@
+import email
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.views import PasswordChangeView
-from User.forms import RegistrationForm, AccountAuthenticationForm, AccountPasswordChangeForm
+from User.forms import (
+    RegistrationForm, 
+    AccountAuthenticationForm, 
+    AccountPasswordChangeForm,
+    EmailUpdateForm,
+    PersonalInformationForm,
+)
 from django.urls import reverse_lazy
 
 
@@ -74,3 +81,33 @@ class AccountView(PasswordChangeView):
     success_url = reverse_lazy('home')
     extra_context = {'change_password_form': form}
     template_name = 'User/account.html'
+
+
+def account_view(request):
+    personal_form = PersonalInformationForm
+    email_form = EmailUpdateForm
+    password_form = AccountPasswordChangeForm
+    
+    if request.POST:
+        if 'email_update' in request.POST:
+            email_form = EmailUpdateForm(request.POST)
+            if email_form.is_valid():
+                email_form.save()
+                
+        if 'personal_form' in request.POST:
+            personal_form = PersonalInformationForm(request.POST, instance=request.user)
+            if personal_form.is_valid():
+                personal_form.save()
+        if 'password_form' in request.POST:
+            password_form = AccountPasswordChangeForm(request.POST)
+            if password_form.is_valid():
+                password_form.save()
+            
+    ctx = {
+        'email_form': email_form,
+        'personal_form': personal_form,
+        'password_form': password_form
+    }
+    
+    return render(request, 'User/account.html', ctx)
+            

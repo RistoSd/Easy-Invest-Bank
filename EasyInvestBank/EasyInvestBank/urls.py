@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from Bank.views import bank_view
-from User.views import registration_view, login_form, logout_view, AccountView
+from User.views import registration_view, login_form, logout_view, account_view
 from news.views import home
 
 
@@ -12,5 +12,5 @@ urlpatterns = [
     path('', home, name='home'),
     path('logout/', logout_view, name='logout'),
     path('bank/', bank_view, name='bank'),
-    path('account/', AccountView.as_view(), name='account')
+    path('account/', account_view, name='account')
 ]
