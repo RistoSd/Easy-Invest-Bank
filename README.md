@@ -4,7 +4,7 @@
 **EasyInvestBank** is a django based project that has a news page, crypto price list and user registration/login with transaction system
 between users that includes automatic currency transfer.
 
-![Bank example](https://prnt.sc/VyMLjXqpYkMN "Example image")
+![Example image](https://user-images.githubusercontent.com/45123135/190678339-4ec67aaa-118c-4de7-a6ff-06209e662296.png)
 
 EasyInvestBank stores the data in SQLite database as it is lightweight and doesn't require an advanced database type.
 
