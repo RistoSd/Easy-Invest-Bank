@@ -53,5 +53,5 @@ For database migrations you can use python manage.py makemigrations and then pyt
 
 
 # Testing
-Launch the tests for each app in the application's root folder with python manage.py test "app name"
-for example if you want to test Bank app then you run python manage.py test Bank
+Launch the tests for each app in the application's root folder with python manage.py test "app name" </br>
+for example if you want to test Bank app then you run `python manage.py test Bank`
