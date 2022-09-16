@@ -30,10 +30,13 @@ and then uncomment the line `AUTH_USER_MODEL = 'User.Account'`
 at the bottom of the `settings.py` file which is in the applications root folder
 
 ### Launch the application with:
-python manage.py runserver from the application's root folder
+`python manage.py runserver` from the application's root folder
 
 Navigate to http://127.0.0.1:8000 or http://localhost:8000
 
+
+Keep in mind that when a new user is created they have a balance of 0, you can 
+add balance to a user in the admin panel.
 
 # Admin panel
 
