@@ -131,7 +131,7 @@ dmypy.json
 # Risto venv
 /python_venv
 
-# EasyInvestBank/EasyInvestBank/settings.py
+EasyInvestBank/EasyInvestBank/settings.py
 
 /.idea
 
