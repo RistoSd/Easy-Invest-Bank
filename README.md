@@ -37,7 +37,7 @@ Navigate to http://127.0.0.1:8000 or http://localhost:8000
 
 # Admin panel
 
-## Admin user creation:
+### Admin user creation:
 You can create a superuser/admin in the terminal with the command </br>
 `python manage.py createsuperuser`
 
