@@ -1,5 +1,7 @@
-### EasyInvestBank
-EasyInvestBank is a django based project that has a news page, crypto price list and user registration/login with transaction system
+# EasyInvestBank
+
+
+**EasyInvestBank** is a django based project that has a news page, crypto price list and user registration/login with transaction system
 between users that includes automatic currency transfer.
 
 demo image
@@ -7,25 +9,41 @@ demo image
 EasyInvestBank stores the data in SQLite database as it is lightweight and doesn't require an advanced database type.
 
 
-## Installation and usage
+# Installation and usage
+
+Clone the repository and create a virtual environment. Currently, EasyInvestBank uses Python 3.10
+
+### Create virtual environment with:
+`python3.10 -m venv venv`
+
+### Activate virtual enviorment with:
+Linux command line: `source venv/bin/activate` <br/>
+Windows command line: `venv/Scripts/activate.bat`
+
+### Install the requirements with:
+`pip install -r requirements.txt`
+
+### Make migrations with:
+`python manage.py makemigrations` <br/>
+`python manage.py migrate` <br/>
+and then uncomment the line `AUTH_USER_MODEL = 'User.Account'`
+at the bottom of the `settings.py` file which is in the applications root folder
+
+### Launch the application with:
+python manage.py runserver from the application's root folder
+
+Navigate to http://127.0.0.1:8000 or http://localhost:8000
 
 
-# Local installation
-Clone the repository and create a virtual environment for it. Currently, EasyInvestBank uses Python 3.10
+# Admin panel
 
-# Create virtual environment with:
-python3.10 -m venv venv
+## Admin user creation:
+You can create a superuser/admin in the terminal with the command </br>
+`python manage.py createsuperuser`
 
-# Activate vitual enviorment with:
-Linux command line: source venv/bin/activate
-Windows command line: venv/Scripts/activate.bat
+Under country you can insert LT for Lithuania, LV for Latvia and EE for Estonia
 
-# Install the requirements with:
-pip install -r requirements.txt
-
-Launch the application with python manage.py runserver from the application's root folder
-
-Navigate to http://127.0.0.1:5000 or http://localhost:5005
+You can access admin panel at http://127.0.0.1:8000/admin or http://localhost:8000/admin
 
 
 # Database
