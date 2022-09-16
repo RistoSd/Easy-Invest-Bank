@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import PasswordChangeView
-from User.forms import RegistrationForm, AccountAuthenticationForm, AccountPasswordChangeForm
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
+from User.forms import (AccountAuthenticationForm, AccountPasswordChangeForm,
+                        RegistrationForm)
 
 
 def registration_view(request):
