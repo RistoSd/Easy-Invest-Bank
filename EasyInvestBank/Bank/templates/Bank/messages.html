@@ -3,12 +3,18 @@
 
 
 {% for message in messages %}
-    <div class="alert {{message.tags}} alert-dismissible" id="myAlert" style="padding: 20px 40px; min-width: 420px; position: absolute; right: 40%; top: 10%;">
+    <div class="alert {{message.tags}} alert-dismissible" id="myAlert" 
+    style="padding: 20px 40px; 
+    min-width: 420px; 
+    position: absolute; 
+    right: 40%; 
+    top: 10%; 
+    z-index: 1;">
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       <strong>{{message}}</strong>
     </div>
-  
-  <script>
+
+<script>
   $(document).ready(function(){
     $(".close").click(function(){
       $("#myAlert").alert("close");
@@ -18,8 +24,8 @@
   
     // Closing the alert
     $('.alert').alert('close');
-}, 4000);
-  </script>
+  }, 4000);
+ </script>
 
 
 {% endfor %}

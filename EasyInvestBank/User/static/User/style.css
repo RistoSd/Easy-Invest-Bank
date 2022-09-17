@@ -5,56 +5,22 @@ body {
     min-height: 100vh;
 }
 
-
-
-
-
-
-.buttonCustom {
-    background-color: #7408cc; 
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    padding-left: 25px;
-    padding-right: 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transform: skewX(-25deg);
-    box-shadow: 6px 6px 0 black;
+.label-active {
+    font-size: 0.8rem;
+    transform: translateY(-140%);
 }
 
-.buttonCustom1 {
-    background-color: #d33e04; 
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    padding-left: 25px;
-    padding-right: 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transform: skewX(-25deg);
-    box-shadow: 6px 6px 0 black;
+.alert-custom1 {
+    padding: 20px 40px; 
+    min-width: 420px; 
+    position: absolute; 
+    right: 40%; 
+    top: 10%; 
+    z-index: 1;
 }
 
 .paddingDown {
     padding-top: 15vh;
-}
-
-
-.LoginBox {
-    background-color: #4a4c4d; 
-    color: white;
-    text-decoration: none;
-    padding: 50px 50px 50px 50px;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 10px;
-    border-width: 5px;
-    border-color: black;
 }
 
 .bg-dark1 {
@@ -64,15 +30,6 @@ body {
 .text-red {
     color:#d33e04;
     display: inline-block;
-}
-
-
-.alert-pos {
-    position: absolute;
-    top: 30px;
-    width: 100%;
-    left: 50%;
-    
 }
 
 .navbar-bg1 {
