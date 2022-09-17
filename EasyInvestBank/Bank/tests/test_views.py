@@ -12,8 +12,7 @@ class TestViews(TestCase):
 
     def test_transaction_get(self):
         response = self.client.get(self.bank_url)
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'Bank/bank.html')
+        self.assertEquals(response.status_code, 302)
 
 
     def test_transaction_post(self):
@@ -23,12 +22,12 @@ class TestViews(TestCase):
             'amount': 20,
             }
         )
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 302)
 
     
     def test_transaction_post_no_data(self):
         response = self.client.post(self.bank_url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 302)
 
 
     def test_currency_exchange_get(self):

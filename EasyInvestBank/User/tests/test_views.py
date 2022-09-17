@@ -64,8 +64,7 @@ class TestViews(TestCase):
     
     def test_account_get(self):
         response = self.client.get(self.account_url)
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'User/account.html')
+        self.assertEquals(response.status_code, 302)
 
 
     def test_account_post(self):
@@ -76,9 +75,9 @@ class TestViews(TestCase):
                 'new_password2': 'P2ssw0rD5468'
             }
         )
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 302)
     
 
     def test_account_post_no_data(self):
         response = self.client.post(self.account_url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 302)
