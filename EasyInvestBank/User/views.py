@@ -1,15 +1,12 @@
-from .models import Account
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate, logout
-from User.forms import (
-    RegistrationForm, 
-    AccountAuthenticationForm, 
-    PasswordChangeForm,
-    EmailUpdateForm,
-    PersonalInformationForm,
-)
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
+from User.forms import (AccountAuthenticationForm, EmailUpdateForm,
+                        PasswordChangeForm, PersonalInformationForm,
+                        RegistrationForm)
 
+from .models import Account
 
 
 def registration_view(request):
@@ -69,12 +66,12 @@ def login_form(request):
 
     return render(request, 'User/login.html', context)
 
-
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('/')
 
-
+@login_required
 def account_view(request):
     personal_form = PersonalInformationForm
     email_form = EmailUpdateForm

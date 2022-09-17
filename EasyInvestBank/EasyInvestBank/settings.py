@@ -69,8 +69,14 @@ WSGI_APPLICATION = 'EasyInvestBank.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '', # Table name
+        'USER': '', # Username to your mysql connection
+        'PASSWORD': '', # password to your mysql connection
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS':{
+        "init_command":"SET foreign_key_checks = 0;",}
     }
 }
 

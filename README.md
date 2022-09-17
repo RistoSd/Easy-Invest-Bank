@@ -6,7 +6,7 @@ between users that includes automatic currency transfer.
 
 ![Example image](https://user-images.githubusercontent.com/45123135/190678339-4ec67aaa-118c-4de7-a6ff-06209e662296.png)
 
-EasyInvestBank stores the data in SQLite database as it is lightweight and doesn't require an advanced database type.
+EasyInvestBank stores the data in MySQL database.
 
 
 # Installation and usage
@@ -22,6 +22,13 @@ Windows command line: `venv/Scripts/activate.bat`
 
 ### Install the requirements with:
 `pip install -r requirements.txt`
+
+### Database:
+Inside the command line:
+Enter mysql command line with `mysql -u root -p`
+Enter your mysql password
+Create database with `'CREATE DATABASE 'NAME';`
+Then enter your database information in the `DATABASE` section inside the `settings.py` file which resides in the EasyInvestBank root folder
 
 ### Make migrations with:
 `python manage.py makemigrations` <br/>
@@ -50,9 +57,9 @@ You can access admin panel at http://127.0.0.1:8000/admin or http://localhost:80
 
 
 # Database
-SQLite database easyinvestbank.db is provided in the repository
+This project uses the MySQL database.
 
-For database migrations you can use python manage.py makemigrations and then python manage.py migrate
+For database migrations you can use `python manage.py makemigrations` and then `python manage.py migrate`
 
 
 # Testing
