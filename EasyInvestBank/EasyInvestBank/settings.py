@@ -70,7 +70,7 @@ WSGI_APPLICATION = 'EasyInvestBank.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '', # Table name
+        'NAME': '', # Database name
         'USER': '', # Username to your mysql connection
         'PASSWORD': '', # password to your mysql connection
         'HOST': 'localhost',
