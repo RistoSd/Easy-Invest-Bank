@@ -1,11 +1,12 @@
 import requests
 from django.shortcuts import render
 from pycoingecko import CoinGeckoAPI
+import datetime
 
 
 def home(request):
     url = (
-        'https://newsapi.org/v2/everything?'
+        'https://newsapi.org/v2/top-headlines?'
         'q=Business&'
         'sortBy=popularity&'
         'apiKey=5fa0d0485aa5497d9fde386421fa8609'
@@ -29,18 +30,18 @@ def home(request):
     cg = CoinGeckoAPI()
     crypto_prices = cg.get_price(
         ids='bitcoin,litecoin,ethereum, dogechain, gmx, optimism,'
-            ' ecash, evmos, tether, usd-coin, binancecoin,'
-            ' matic-network, tron',
+            ' ecash, evmos, tether, cardano, usd-coin, binancecoin,'
+            ' matic-network, tron, shiba-inu',
         vs_currencies='eur',
         include_last_updated_at=True,
         include_24hr_change=True,
     )
-
+    
     bitcoin_prices = crypto_prices.get('bitcoin')
     erhereum_prices = crypto_prices.get('ethereum')
     litecoin_prices = crypto_prices.get('litecoin')
-    dogechain_prices = crypto_prices.get('dogechain')
-    gmx_prices = crypto_prices.get('gmx')
+    cardano_prices = crypto_prices.get('cardano')
+    shiba_inu = crypto_prices.get('shiba-inu')
     optimism_prices = crypto_prices.get('optimism')
     ecash_prices = crypto_prices.get('ecash')
     evmos_prices = crypto_prices.get('evmos')
@@ -49,24 +50,21 @@ def home(request):
     binancecoin_prices = crypto_prices.get('binancecoin')
     maticnetwork_prices = crypto_prices.get('matic-network')
     tron_prices = crypto_prices.get('tron')
+    last_updated = datetime.datetime.fromtimestamp(
+        shiba_inu['last_updated_at']
+        ).strftime('%c')
 
-    top7trending = cg.get_search_trending()
-    top7names1 = top7trending['coins'][0]['item']['name']
-    top7names2 = top7trending['coins'][1]['item']['name']
-    top7names3 = top7trending['coins'][2]['item']['name']
-    top7names4 = top7trending['coins'][3]['item']['name']
-    top7names5 = top7trending['coins'][4]['item']['name']
-    top7names6 = top7trending['coins'][5]['item']['name']
-    top7names7 = top7trending['coins'][6]['item']['name']
-    top7thumb1 = top7trending['coins'][0]['item']['thumb']
-    top7thumb2 = top7trending['coins'][1]['item']['thumb']
-    top7thumb3 = top7trending['coins'][2]['item']['thumb']
-    top7thumb4 = top7trending['coins'][3]['item']['thumb']
-    top7thumb5 = top7trending['coins'][4]['item']['thumb']
-    top7thumb6 = top7trending['coins'][5]['item']['thumb']
-    top7thumb7 = top7trending['coins'][6]['item']['thumb']
-
+    trending_crypto = cg.get_search_trending()
+    trending_name = []
+    trending_icon = []
+    trending_id = []
+    for i in range(7):
+        trending_name.append(trending_crypto['coins'][i]['item']['name'])
+        trending_icon.append(trending_crypto['coins'][i]['item']['thumb'])
+        trending_id.append(trending_crypto['coins'][i]['item']['id'])
+        
     context = {
+        'last_updated': last_updated,
         'url': article[0]['url'],
         'title': article[0]['title'],
         'image': article[0]['urlToImage'],
@@ -85,13 +83,11 @@ def home(request):
         'url7': article1[2]['url'],
         'title7': article1[2]['title'],
         'image7': article1[2]['urlToImage'],
-
-        # Crypto stuff >.<
         'bitcoin_prices': bitcoin_prices,
         'ethereum_prices': erhereum_prices,
         'litecoin_prices': litecoin_prices,
-        'dogechain_prices': dogechain_prices,
-        'gmx_prices': gmx_prices,
+        'cardano_prices': cardano_prices,
+        'shiba_inu': shiba_inu,
         'optimism_prices': optimism_prices,
         'ecash_prices': ecash_prices,
         'evmos_prices': evmos_prices,
@@ -100,21 +96,9 @@ def home(request):
         'binancecoin_prices': binancecoin_prices,
         'maticnetwork_prices': maticnetwork_prices,
         'tron_prices': tron_prices,
-
-        'top7names1': top7names1,
-        'top7names2': top7names2,
-        'top7names3': top7names3,
-        'top7names4': top7names4,
-        'top7names5': top7names5,
-        'top7names6': top7names6,
-        'top7names7': top7names7,
-        'top7thumb1': top7thumb1,
-        'top7thumb2': top7thumb2,
-        'top7thumb3': top7thumb3,
-        'top7thumb4': top7thumb4,
-        'top7thumb5': top7thumb5,
-        'top7thumb6': top7thumb6,
-        'top7thumb7': top7thumb7,
+        'trending_name': trending_name,
+        'trending_icon': trending_icon,
+        'trending_id': trending_id,
     }
 
     return render(request, 'news/home.html', context=context)

@@ -5,34 +5,17 @@
 
 <div class="d-flex flex-row flex-lg-row flex-wrap justify-content-center align-items-start">
     <div class="col ps-xl-5 pt-5">
-
-        <h3 class="ps-5">World Business News</h3>
-
+        <h3 class="ps-3">World Business News</h3>
         <div class="p-3">
             <div class="card" style="max-width: 35rem; min-width: 20rem; height: 20rem;">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="{{ image }}" class="img-fluid"/>
-                <a href="{{url}}">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-                </div>
-                <div class="card-body">
-                <h5 class="card-title">{{ title}}</h5>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="p-3">
-            <div class="card" style="max-width: 35rem; min-width: 20rem; height: 20rem;">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="{{ image1 }}" class="img-fluid"/>
-                <a href="{{url1}}">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-                </div>
-                <div class="card-body">
-                <h5 class="card-title">{{ title1 }}</h5>
+                    <img src="{{ image }}" class="img-fluid"/>
+                    <a href="{{ url }}" target=”_blank”>
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ title }}</h5>
                 </div>
             </div>
         </div>
@@ -40,32 +23,45 @@
         <div class="p-3">
             <div class="card" style="max-width: 35rem; min-width: 20rem; height: 20rem;">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="{{ image2 }}" class="img-fluid"/>
-                <a href="{{url2}}">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
+                    <img src="{{ image1 }}" class="img-fluid"/>
+                    <a href="{{ url1 }}" target=”_blank”>
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
                 <div class="card-body">
-                <h5 class="card-title">{{ title2}}</h5>
+                        <h5 class="card-title">{{ title1 }}</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3">
+            <div class="card" style="max-width: 35rem; min-width: 20rem; height: 20rem;">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="{{ image2 }}" class="img-fluid"/>
+                    <a href="{{ url2 }}" target=”_blank”>
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ title2 }}</h5>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="col pt-5">
-
-        <h3 class="ps-5">Cryptocurrency News</h3>
+        <h3 class="ps-3">Cryptocurrency News</h3>
 
         <div class="p-3">
             <div class="card" style="max-width: 35rem; min-width: 20rem; height: 20rem;">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="{{ image5 }}" class="img-fluid"/>
-                <a href="{{url5}}">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
+                    <img src="{{ image5 }}" class="img-fluid"/>
+                    <a href="{{ url5 }}" target=”_blank”>
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
                 </div>
                 <div class="card-body">
-                <h5 class="card-title">{{ title5 }}</h5>
+                    <h5 class="card-title">{{ title5 }}</h5>
                 </div>
             </div>
         </div>
@@ -75,7 +71,7 @@
             <div class="card" style="max-width: 35rem; min-width: 20rem; height: 20rem;">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                 <img src="{{ image6 }}" class="img-fluid"/>
-                <a href="{{url6}}">
+                <a href="{{ url6 }}" target=”_blank”>
                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
                 </div>
@@ -90,7 +86,7 @@
             <div class="card" style="max-width: 35rem; min-width: 20rem; height: 20rem;">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                 <img src="{{ image7 }}" class="img-fluid"/>
-                <a href="{{url7}}">
+                <a href="{{ url7 }}" target=”_blank”>
                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
                 </div>
@@ -103,368 +99,147 @@
 
     <div class="col pt-5 pe-5">
 
-        <h3 class="ps-5 pb-2">Cryptocurrencies</h3>
-        
+        <h3 class="pb-2">Cryptocurrencies</h3>
         <table class="table">
             <thead class="table-dark">
-
+                <tr>
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>24 Hour Change</td>
+                </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><img src="https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">Bitcoin price</a></td>
+                        <a href="https://www.coingecko.com/en/coins/bitcoin" target=”_blank”>Bitcoin price</a></td>
                     <td>{{ bitcoin_prices.eur }} <small>EUR</small></td>
-                    <td>{{ bitcoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% if bitcoin_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ bitcoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ bitcoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><img src="https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">Ethereum price</a></td>
+                        <a href="https://www.coingecko.com/en/coins/ethereum" target=”_blank”>Ethereum price</a></td>
                     <td>{{ ethereum_prices.eur }} <small>EUR</small></td>
-                    <td>{{ ethereum_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% if ethereum_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ ethereum_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ ethereum_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><img src="https://assets.coingecko.com/coins/images/2/small/litecoin.png?1547033580" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">Litecoin price</a></td>
+                        <a href="https://www.coingecko.com/en/coins/litecoin" target=”_blank”>Litecoin price</a></td>
                     <td>{{ litecoin_prices.eur  }} <small>EUR</small></td>
-                    <td>{{ litecoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% if litecoin_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ litecoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ litecoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
-                    <td><img src="https://assets.coingecko.com/coins/images/5/small/dogecoin.png?1547792256" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">Dogechain price</a></td>
-                    <td>{{ dogechain_prices.eur  }} <small>EUR</small></td>
-                    <td>{{ dogechain_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    <td><img src="https://assets.coingecko.com/coins/images/975/small/cardano.png?1547034860" width="25" height="25">
+                        <a href="https://www.coingecko.com/en/coins/cardano" target=”_blank”>Cardano</a></td>
+                    <td>{{ cardano_prices.eur  }} <small>EUR</small></td>
+                    {% if cardano_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ cardano_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ cardano_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
-                    <td><img src="https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">GMX price</a></td>
-                    <td>{{ gmx_prices.eur }} <small>EUR</small></td>
-                    <td>{{ gmx_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    <td><img src="https://assets.coingecko.com/coins/images/11939/small/shiba.png?1622619446" width="25" height="25">
+                        <a href="https://www.coingecko.com/en/coins/shiba-inu" target=”_blank”>Shiba Inu price</a></td>
+                    <td>{{ shiba_inu.eur }} <small>EUR</small></td>
+                    {% if shiba_inu.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ shiba_inu.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ shiba_inu.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><img src="https://assets.coingecko.com/coins/images/25244/small/Optimism.png?1660904599" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">Optimism price</a></td>
+                        <a href="https://www.coingecko.com/en/coins/optimism" target=”_blank”>Optimism price</a></td>
                     <td>{{ optimism_prices.eur }} <small>EUR</small></td>
-                    <td>{{ optimism_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% if optimism_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ optimism_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ optimism_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><img src="https://assets.coingecko.com/coins/images/16646/small/Logo_final-22.png?1628239446" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">eCash price</a></td>
+                        <a href="https://www.coingecko.com/en/coins/ecash" target=”_blank”>eCash price</a></td>
                     <td>{{ ecash_prices.eur }} <small>EUR</small></td>
-                    <td>{{ ecash_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% if ecash_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ ecash_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ ecash_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><img src="https://assets.coingecko.com/coins/images/24023/small/evmos.png?1653958927" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">Evmos price</a></td>
+                        <a href="https://www.coingecko.com/en/coins/evmos" target=”_blank”>Evmos price</a></td>
                     <td>{{ evmos_prices.eur }} <small>EUR</small></td>
-                    <td>{{ evmos_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% if evmos_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ evmos_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ evmos_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><img src="https://assets.coingecko.com/coins/images/325/small/Tether-logo.png?1598003707" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">Tether price</a></td>
+                        <a href="https://www.coingecko.com/en/coins/tether" target=”_blank”>Tether price</a></td>
                     <td>{{ tether_prices.eur }} <small>EUR</small></td>
-                    <td>{{ tether_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% if tether_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ tether_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ tether_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><img src="https://assets.coingecko.com/coins/images/6319/small/USD_Coin_icon.png?1547042389" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">USD Coin price</a></td>
+                        <a href="https://www.coingecko.com/en/coins/usd-coin" target=”_blank”>USD Coin price</a></td>
                     <td>{{ usdcoin_prices.eur }} <small>EUR</small></td>
-                    <td>{{ usdcoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% if usdcoin_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ usdcoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ usdcoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><img src="https://assets.coingecko.com/coins/images/825/small/bnb-icon2_2x.png?1644979850" width="25" height="25">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">BNB price</a></td>
+                        <a href="https://www.coingecko.com/en/coins/bnb" target=”_blank”>BNB price</a></td>
                     <td>{{ binancecoin_prices.eur }} <small>EUR</small></td>
-                    <td>{{ binancecoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% if binancecoin_prices.eur_24h_change > 0 %}
+                    <td class=" text-success">{{ binancecoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% else %}
+                    <td class="text-danger">{{ binancecoin_prices.eur_24h_change|floatformat:2}} <small>%</small></td>
+                    {% endif %}
                 </tr>
             </tbody>
+            <tfoot class="table-dark">
+                <tr>
+                    <td colspan="3" class="text-end text-white">Last Update - {{last_updated}}</td>
+                </tr>
+            </tfoot>
         </table>
 
         <div>
-            <h3 class="ps-5 pb-2">Most Searched Cryptocurrencies</h3>
+            <h3 class="pb-2">Most Searched Cryptocurrencies</h3>
             <div class="ps-4">
-                <p><img src="{{ top7thumb1 }}" alt="alternatetext"> {{ top7names1 }}</p>
-                <p><img src="{{ top7thumb2 }}" alt="alternatetext"> {{ top7names2 }}</p>
-                <p><img src="{{ top7thumb3 }}" alt="alternatetext"> {{ top7names3 }}</p>
-                <p><img src="{{ top7thumb4 }}" alt="alternatetext"> {{ top7names4 }}</p>
-                <p><img src="{{ top7thumb5 }}" alt="alternatetext"> {{ top7names5 }}</p>
-                <p><img src="{{ top7thumb6 }}" alt="alternatetext"> {{ top7names6 }}</p>
-                <p><img src="{{ top7thumb7 }}" alt="alternatetext"> {{ top7names7 }}</p>
-            </div>
-        </div>
-
-
-
-    </div>
-  </div>
-
- 
-
- 
-
-
-
-
-
-
-
-
-
-{% endblock %}
-
-
-<!-- World News -->
-<div class="d-flex flex-wrap-reverse ps-5 pt-5">
-    <div class="row row-cols-3">
-        <div class="g-col-6 g-col-md-4">
-            <div class="row row-cols-1">
-                <div class="col pb-2">
-                    <h1 class="">World Business News</h1>
-                </div>
-
-                    <!-- NEWS ARTICLES -->
-                <div class="col">
-                    <div class="p-3">
-                        <div class="card" style="width: 20rem; height: 20rem;">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ image }}" class="img-fluid"/>
-                            <a href="{{url}}">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                            </div>
-                            <div class="card-body">
-                            <h5 class="card-title">{{ title}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="p-3">
-                        <div class="card" style="width: 20rem; height: 20rem;">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ image1 }}" class="img-fluid"/>
-                            <a href="{{url1}}">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                            </div>
-                            <div class="card-body">
-                            <h5 class="card-title">{{ title1 }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="p-3">
-                        <div class="card" style="width: 20rem; height: 20rem;">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ image2 }}" class="img-fluid"/>
-                            <a href="{{url2}}">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                            </div>
-                            <div class="card-body">
-                            <h5 class="card-title">{{ title2 }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- World Crypto News -->
-        <div class="g-col-6 g-col-md-4">
-            <div class="row row-cols-1">
-                <div class="col pb-2">
-                    <h1 class="">World Crypto News</h1>
-                </div>
-
-                <div class="col">
-                    <div class="p-3">
-                        <div class="card" style="width: 20rem; height: 20rem;">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ image5 }}" class="img-fluid"/>
-                            <a href="{{url5}}">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                            </div>
-                            <div class="card-body">
-                            <h5 class="card-title">{{ title5 }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="p-3">
-                        <div class="card" style="width: 20rem; height: 20rem;">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ image6 }}" class="img-fluid"/>
-                            <a href="{{url6}}">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                            </div>
-                            <div class="card-body">
-                            <h5 class="card-title">{{ title6 }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="p-3">
-                        <div class="card" style="width: 20rem; height: 20rem;">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{{ image7 }}" class="img-fluid"/>
-                            <a href="{{url7}}">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                            </div>
-                            <div class="card-body">
-                            <h5 class="card-title">{{ title7 }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="g-col-6 g-col-md-4">
-            <div class="row row-cols-1">
-                <div class="col pb-2">
-                    <h1 class="">Cryptocurrencies</h1>
-                </div>
-                <div class="col">
-                    <table class="table">
-                        <thead class="table-dark">
-
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">Bitcoin price</a></td>
-                                <td>{{ bitcoin_prices.eur }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">Ethereum price</a></td>
-                                <td>{{ ethereum_prices.eur }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/2/small/litecoin.png?1547033580" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">Litecoin price</a></td>
-                                <td>{{ litecoin_prices.eur  }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/5/small/dogecoin.png?1547792256" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">Dogechain price</a></td>
-                                <td>{{ dogechain_prices.eur  }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">GMX price</a></td>
-                                <td>{{ gmx_prices.eur }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/25244/small/Optimism.png?1660904599" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">Optimism price</a></td>
-                                <td>{{ optimism_prices.eur }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/16646/small/Logo_final-22.png?1628239446" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">eCash price</a></td>
-                                <td>{{ ecash_prices.eur }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/24023/small/evmos.png?1653958927" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">Evmos price</a></td>
-                                <td>{{ evmos_prices.eur }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/325/small/Tether-logo.png?1598003707" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">Tether price</a></td>
-                                <td>{{ tether_prices.eur }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/6319/small/USD_Coin_icon.png?1547042389" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">USD Coin price</a></td>
-                                <td>{{ usdcoin_prices.eur }} <small>EUR</small></td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://assets.coingecko.com/coins/images/825/small/bnb-icon2_2x.png?1644979850" width="25" height="25">
-                                    <a href="https://www.coingecko.com/en/coins/bitcoin">BNB price</a></td>
-                                <td>{{ binancecoin_prices.eur }} <small>EUR</small></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-
-                    <p><img src="https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579">
-                        <a href="https://www.coingecko.com/en/coins/bitcoin">Bitcoin price</a>
-                        {{ bitcoin_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880">
-                        <a href="https://www.coingecko.com/en/coins/ethereum">Ethereum price</a>
-                        {{ ethereum_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/2/small/litecoin.png?1547033580">
-                        <a href="https://www.coingecko.com/en/coins/litecoin">Litecoin price</a>
-                        {{ litecoin_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/5/small/dogecoin.png?1547792256">
-                        <a href="https://www.coingecko.com/en/coins/dogecoin">Dogechain price</a>
-                        {{ dogechain_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468">
-                        <a href="https://www.coingecko.com/en/coins/gmx">GMX price</a>
-                        {{ gmx_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/25244/small/Optimism.png?1660904599">
-                        <a href="https://www.coingecko.com/en/coins/optimism">Optimism price</a>
-                        {{ optimism_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/16646/small/Logo_final-22.png?1628239446">
-                        <a href="https://www.coingecko.com/en/coins/ecash">eCash price</a>
-                        {{ ecash_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/24023/small/evmos.png?1653958927">
-                        <a href="https://www.coingecko.com/en/coins/evmos">Evmos price </a>
-                        {{ evmos_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/325/small/Tether-logo.png?1598003707">
-                        <a href="https://www.coingecko.com/en/coins/tether">Tether price</a>
-                        {{ tether_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/6319/small/USD_Coin_icon.png?1547042389">
-                        <a href="https://www.coingecko.com/en/coins/usd-coin">USD Coin price</a>
-                        {{ usdcoin_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/825/small/bnb-icon2_2x.png?1644979850">
-                        <a href="https://www.coingecko.com/en/coins/bnb">BNB price</a>
-                        {{ binancecoin_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/4713/small/matic-token-icon.png?1624446912">
-                        <a href="https://www.coingecko.com/en/coins/polygon">Polygon price</a>
-                        {{ maticnetwork_prices }} {{ currency }}</p>
-
-                    <p><img src="https://assets.coingecko.com/coins/images/1094/small/tron-logo.png?1547035066">
-                        <a href="https://www.coingecko.com/en/coins/tron">Tron price</a>
-                        {{ tron_prices }} {{ currency }}</p>
-                    <p>Prices refreshed at: {{ refresh_time }}</p>
-
-                </div>
-                <div class="col">
-                    <h1 class="">Most Searched Cryptocurrencies</h1>
-                    <p><img src="{{ top7thumb1 }}" alt="alternatetext"> {{ top7names1 }}</p>
-                    <p><img src="{{ top7thumb2 }}" alt="alternatetext"> {{ top7names2 }}</p>
-                    <p><img src="{{ top7thumb3 }}" alt="alternatetext"> {{ top7names3 }}</p>
-                    <p><img src="{{ top7thumb4 }}" alt="alternatetext"> {{ top7names4 }}</p>
-                    <p><img src="{{ top7thumb5 }}" alt="alternatetext"> {{ top7names5 }}</p>
-                    <p><img src="{{ top7thumb6 }}" alt="alternatetext"> {{ top7names6 }}</p>
-                    <p><img src="{{ top7thumb7 }}" alt="alternatetext"> {{ top7names7 }}</p>
-                </div>
-                <div class="col">
-                </div>
+                <a href="https://www.coingecko.com/en/coins/{{ trending_id.0 }}" target=”_blank”><p><img src="{{ trending_icon.0 }}" alt="{{ trending_name.0 }}"> {{ trending_name.0 }}</p></a>
+                <a href="https://www.coingecko.com/en/coins/{{ trending_id.1 }}" target=”_blank”><p><img src="{{ trending_icon.1 }}" alt="{{ trending_name.1 }}"> {{ trending_name.1 }}</p></a>
+                <a href="https://www.coingecko.com/en/coins/{{ trending_id.2 }}" target=”_blank”><p><img src="{{ trending_icon.2 }}" alt="{{ trending_name.2 }}"> {{ trending_name.2 }}</p></a>
+                <a href="https://www.coingecko.com/en/coins/{{ trending_id.3 }}" target=”_blank”><p><img src="{{ trending_icon.3 }}" alt="{{ trending_name.3 }}"> {{ trending_name.3 }}</p></a>
+                <a href="https://www.coingecko.com/en/coins/{{ trending_id.4 }}" target=”_blank”><p><img src="{{ trending_icon.4 }}" alt="{{ trending_name.4 }}"> {{ trending_name.4 }}</p></a>
+                <a href="https://www.coingecko.com/en/coins/{{ trending_id.5 }}" target=”_blank”><p><img src="{{ trending_icon.5 }}" alt="{{ trending_name.5 }}"> {{ trending_name.5 }}</p></a>
+                <a href="https://www.coingecko.com/en/coins/{{ trending_id.6 }}" target=”_blank”><p><img src="{{ trending_icon.6 }}" alt="{{ trending_name.6 }}"> {{ trending_name.6 }}</p></a>
             </div>
         </div>
     </div>
 </div>
+
+{% endblock %}

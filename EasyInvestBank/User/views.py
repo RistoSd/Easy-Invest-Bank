@@ -1,9 +1,15 @@
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.views import PasswordChangeView
-from django.shortcuts import redirect, render
-from django.urls import reverse_lazy
-from User.forms import (AccountAuthenticationForm, AccountPasswordChangeForm,
-                        RegistrationForm)
+from .models import Account
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate, logout
+from User.forms import (
+    RegistrationForm, 
+    AccountAuthenticationForm, 
+    PasswordChangeForm,
+    EmailUpdateForm,
+    PersonalInformationForm,
+)
+from django.contrib import messages
+
 
 
 def registration_view(request):
@@ -69,9 +75,50 @@ def logout_view(request):
     return redirect('/')
 
 
-class AccountView(PasswordChangeView):
+def account_view(request):
+    personal_form = PersonalInformationForm
+    email_form = EmailUpdateForm
+    password_form = PasswordChangeForm(request.user)
+    
+    if request.POST:
+        if 'email_form' in request.POST:
+            email_form = EmailUpdateForm(request.POST, instance=request.user)
+            if email_form.is_valid():
+                email_check = email_form.cleaned_data.get('email')
+                email_list = Account.objects.filter(
+                    email=email_check
+                    ).exists()
+                
+                if not email_list:
+                    email_form.save()
+                    messages.success(request, 'Email updated!')
+                else:
+                    messages.error(request, 'Email is already taken!')
+                
+        if 'personal_form' in request.POST:
+            personal_form = PersonalInformationForm(
+                request.POST, 
+                instance=request.user
+            )
+            if personal_form.is_valid():
+                messages.success(request, 'Personal information updated!')
+                personal_form.save()
+                
+        if 'password_form' in request.POST:
+            password_form = PasswordChangeForm(
+                request.user,
+                request.POST,
+            )
+            if password_form.is_valid():
+                messages.success(request, 'Password changed successfully!')
+                password_form.save()
 
-    form = AccountPasswordChangeForm
-    success_url = reverse_lazy('home')
-    extra_context = {'change_password_form': form}
-    template_name = 'User/account.html'
+    ctx = {
+        'email_form': email_form,
+        'personal_form': personal_form,
+        'password_form': password_form,
+    }
+    
+    return render(request, 'User/account.html', ctx)
+
+            

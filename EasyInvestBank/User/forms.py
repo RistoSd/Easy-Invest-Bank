@@ -32,22 +32,27 @@ class AccountAuthenticationForm(forms.ModelForm):
         email = self.cleaned_data['email']
         password = self.cleaned_data['password']
         if not authenticate(email=email, password=password):
-            raise forms.ValidationError('Invalid login')
+            raise forms.ValidationError('Wrong email or password!')
 
 
-class AccountPasswordChangeForm(PasswordChangeForm):
+class PersonalInformationForm(forms.ModelForm):
+    
     class Meta:
         model = Account
-        fields = ('old_password', 'new_password1', 'new_password2')
+        fields = ['full_name', 'address',]
+        exclude = ('date_of_birth', 'currency', 'country',)
+        
+        
+class EmailUpdateForm(forms.ModelForm):
+    email = forms.EmailField(max_length=255, widget=(forms.EmailInput(attrs={
+        'class': 'form-control',
+    })))
+    
+    class Meta:
+        model = Account
+        fields = ['email',]
+   
 
-        Widgets = {
-            'old_password': forms.PasswordInput(
-                attrs={'class': 'form-control'}
-            ),
-            'new_password1': forms.PasswordInput(
-                attrs={'class': 'form-control'}
-            ),
-            'new_password2': forms.PasswordInput(
-                attrs={'class': 'form-control'}
-            )
-        }
+class PasswordChangeForm(PasswordChangeForm):
+    class Meta:
+        model = Account
