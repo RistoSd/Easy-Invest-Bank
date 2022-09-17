@@ -11,6 +11,7 @@ from User.forms import (
 from django.contrib import messages
 
 
+
 def registration_view(request):
     context = {}
     if request.POST:
