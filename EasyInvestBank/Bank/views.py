@@ -1,6 +1,7 @@
 from decimal import Decimal
 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from User.models import Account
 
@@ -9,6 +10,7 @@ from .models import Transaction_List
 from .utilities import currency_exchange
 
 
+@login_required
 def bank_view(request):
     queryset = Transaction_List.objects.all()
     ctx = {}
